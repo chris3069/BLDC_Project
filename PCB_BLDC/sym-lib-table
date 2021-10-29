@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name PCB_BLDC-rescue)(type Legacy)(uri ${KIPRJMOD}/to263-7hand_solder.lib)(options "")(descr ""))
+  (lib (name btn8962ta)(type Legacy)(uri ${KIPRJMOD}/btn8962ta.lib)(options "")(descr ""))
+)
