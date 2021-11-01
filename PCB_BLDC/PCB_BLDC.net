@@ -1,8 +1,8 @@
 (export (version D)
   (design
-    (source /home/chris/Documents/BLDC_Project/PCB_BLDC/PCB_BLDC.sch)
-    (date "Sun 31 Oct 2021 02:44:29 PM CET")
-    (tool "Eeschema 5.1.11-e4df9d881f~92~ubuntu20.04.1")
+    (source /home/chris/Schreibtisch/BLDC/BLDC_Project/PCB_BLDC/PCB_BLDC.sch)
+    (date "Mon 01 Nov 2021 01:50:00 PM CET")
+    (tool "Eeschema 5.1.10")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
         (title)
@@ -155,7 +155,7 @@
       (sheetpath (names /) (tstamps /))
       (tstamp 6179B4C9))
     (comp (ref R3)
-      (value 2k)
+      (value 100)
       (footprint Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder)
       (datasheet ~)
       (libsource (lib Device) (part R_Small) (description "Resistor, small symbol"))
@@ -780,7 +780,7 @@
     (library (logical Transistor_FET)
       (uri /usr/share/kicad/library/Transistor_FET.lib))
     (library (logical btn8962ta)
-      (uri /home/chris/Documents/BLDC_Project/PCB_BLDC/btn8962ta.lib)))
+      (uri /home/chris/Schreibtisch/BLDC/BLDC_Project/PCB_BLDC/btn8962ta.lib)))
   (nets
     (net (code 1) (name GND)
       (node (ref J9) (pin 1))

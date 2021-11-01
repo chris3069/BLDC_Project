@@ -257,7 +257,7 @@ F 1 "220nF" H 8642 1405 50  0000 L CNN
 F 2 "Capacitor_SMD:C_Elec_5x5.4" H 8550 1450 50  0001 C CNN
 F 3 "~" H 8550 1450 50  0001 C CNN
 	1    8550 1450
-	1    0    0    -1  
+	-1   0    0    1   
 $EndComp
 Wire Wire Line
 	8550 1350 8550 1250
