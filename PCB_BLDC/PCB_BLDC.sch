@@ -37,7 +37,7 @@ F 3 "~" H 3100 4100 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	4600 1150 4550 1150
-Text Label 3300 3500 0    50   ~ 0
+Text Label 3100 3500 2    50   ~ 0
 VCC_5V
 Wire Wire Line
 	3100 2400 3100 2300
@@ -446,8 +446,6 @@ Rot_A_Pull_Up
 Text Label 9950 800  0    50   ~ 0
 VCC_Filtered
 Text Label 3100 2300 2    50   ~ 0
-VCC_Filtered
-Text Label 5950 1150 0    50   ~ 0
 VCC_Filtered
 Text Notes 1250 650  0    50   ~ 0
 C 0.1uF - 0.01 uF\nFerrite Bead Impedance 50 to 100 ohm @ range of interest: 0.5 uH - 5 uH
@@ -934,8 +932,6 @@ Text Notes 1600 850  0    50   ~ 0
 Reverse Polartiy Protection\n
 Wire Notes Line
 	3400 850  6450 850 
-Wire Wire Line
-	3100 3450 3100 3500
 $Comp
 L power:GND #PWR01
 U 1 1 61860DD5
@@ -1134,8 +1130,6 @@ Wire Notes Line
 	6450 2100 3400 2100
 Wire Wire Line
 	4700 1900 4700 2000
-Text Label 5500 5000 2    50   ~ 0
-VCC_5V
 Text Label 4900 6950 2    50   ~ 0
 Rot_A_Pull_Up
 Text Label 4900 6850 2    50   ~ 0
@@ -1353,11 +1347,6 @@ Wire Wire Line
 Connection ~ 850  1150
 Wire Wire Line
 	850  1150 1400 1150
-Wire Wire Line
-	3300 3500 3100 3500
-Connection ~ 3100 3500
-Wire Wire Line
-	3100 3500 3100 3650
 Text Label 750  5450 2    50   ~ 0
 Reset
 Text Label 6300 5650 0    50   ~ 0
@@ -1394,8 +1383,6 @@ Text Label 750  5550 2    50   ~ 0
 3V3
 Wire Wire Line
 	1000 5550 750  5550
-Text Label 750  5650 2    50   ~ 0
-5V
 Wire Wire Line
 	750  5650 1000 5650
 Text Label 750  5750 2    50   ~ 0
@@ -1416,14 +1403,12 @@ Text Label 6300 5850 0    50   ~ 0
 IOREF
 Text Label 6300 6050 0    50   ~ 0
 AREF
-Text Label 750  5950 2    50   ~ 0
+Text Label 750  5650 2    50   ~ 0
 VCC_5V
 Text Label 5700 5000 2    50   ~ 0
 3V3
 Wire Wire Line
 	5500 5000 5500 5250
-Text Label 5800 5000 0    50   ~ 0
-5V
 Text Label 5700 7450 0    50   ~ 0
 GND
 Wire Wire Line
@@ -1611,33 +1596,6 @@ Wire Wire Line
 	6100 6350 6300 6350
 Wire Wire Line
 	6300 6250 6100 6250
-Wire Wire Line
-	3100 2700 3100 2800
-$Comp
-L power:PWR_FLAG #FLG0103
-U 1 1 61C961E6
-P 5800 1150
-F 0 "#FLG0103" H 5800 1225 50  0001 C CNN
-F 1 "PWR_FLAG" H 5800 1323 50  0000 C CNN
-F 2 "" H 5800 1150 50  0001 C CNN
-F 3 "~" H 5800 1150 50  0001 C CNN
-	1    5800 1150
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:PWR_FLAG #FLG0104
-U 1 1 61C9901D
-P 3100 2800
-F 0 "#FLG0104" H 3100 2875 50  0001 C CNN
-F 1 "PWR_FLAG" V 3100 3150 50  0000 C CNN
-F 2 "" H 3100 2800 50  0001 C CNN
-F 3 "~" H 3100 2800 50  0001 C CNN
-	1    3100 2800
-	0    -1   -1   0   
-$EndComp
-Connection ~ 3100 2800
-Wire Wire Line
-	3100 2800 3100 2850
 $Comp
 L Connector_Generic:Conn_01x06 J10
 U 1 1 61CCE6B7
@@ -1672,17 +1630,17 @@ F 3 "~" H 3200 7300 50  0001 C CNN
 	1    3200 7300
 	-1   0    0    1   
 $EndComp
-Text Label 3550 7600 0    50   ~ 0
-L3_Sense
 Text Label 3550 7500 0    50   ~ 0
-L2_Sense
+L3_Sense
 Text Label 3550 7400 0    50   ~ 0
+L2_Sense
+Text Label 3550 7300 0    50   ~ 0
 L1_Sense
 Text Label 3550 7200 0    50   ~ 0
 L3_Motor
 Text Label 3550 7100 0    50   ~ 0
 L2_Motor
-Text Label 3550 7300 0    50   ~ 0
+Text Label 3550 7600 0    50   ~ 0
 VCC_5V
 Wire Wire Line
 	3550 7000 3400 7000
@@ -1700,4 +1658,41 @@ Wire Wire Line
 	3400 7500 3550 7500
 Text Label 3550 7000 0    50   ~ 0
 L1_Motor
+Text Label 5800 5000 0    50   ~ 0
+VCC_5V
+Text Label 5500 5000 2    50   ~ 0
+VIN
+Text Label 750  5950 2    50   ~ 0
+VIN
+$Comp
+L power:PWR_FLAG #FLG0103
+U 1 1 61C961E6
+P 5950 1150
+F 0 "#FLG0103" H 5950 1225 50  0001 C CNN
+F 1 "PWR_FLAG" H 5950 1323 50  0000 C CNN
+F 2 "" H 5950 1150 50  0001 C CNN
+F 3 "~" H 5950 1150 50  0001 C CNN
+	1    5950 1150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3100 2800 3100 2850
+Wire Wire Line
+	3100 2700 3100 2800
+Connection ~ 3100 2800
+$Comp
+L power:PWR_FLAG #FLG0104
+U 1 1 61C9901D
+P 3100 2800
+F 0 "#FLG0104" H 3100 2875 50  0001 C CNN
+F 1 "PWR_FLAG" V 3100 3150 50  0000 C CNN
+F 2 "" H 3100 2800 50  0001 C CNN
+F 3 "~" H 3100 2800 50  0001 C CNN
+	1    3100 2800
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3100 3450 3100 3650
+Text Label 5550 1150 1    50   ~ 0
+VCC_Filtered
 $EndSCHEMATC
