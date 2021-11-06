@@ -447,7 +447,7 @@ Text Label 10650 850  2    50   ~ 0
 VCC_Filtered
 Text Label 3750 2550 2    50   ~ 0
 VCC_Filtered
-Text Notes 1850 200  0    50   ~ 0
+Text Notes 1850 -700 0    50   ~ 0
 C 0.1uF - 0.01 uF\nFerrite Bead Impedance 50 to 100 ohm @ range of interest: 0.5 uH - 5 uH
 $Comp
 L Device:C_Small C21
