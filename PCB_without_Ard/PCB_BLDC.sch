@@ -279,7 +279,7 @@ L Device:C_Small C7
 U 1 1 617E556E
 P 6600 3900
 F 0 "C7" H 6750 3900 50  0000 C CNN
-F 1 "1uF" H 6750 4000 50  0000 C CNN
+F 1 "100nF" H 6750 4000 50  0000 C CNN
 F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" H 6600 3900 50  0001 C CNN
 F 3 "~" H 6600 3900 50  0001 C CNN
 	1    6600 3900
@@ -290,7 +290,7 @@ L power:GND #PWR0102
 U 1 1 617E6428
 P 5750 3500
 F 0 "#PWR0102" H 5750 3250 50  0001 C CNN
-F 1 "GND" H 5755 3327 50  0000 C CNN
+F 1 "GND" H 5800 3600 50  0000 C CNN
 F 2 "" H 5750 3500 50  0001 C CNN
 F 3 "" H 5750 3500 50  0001 C CNN
 	1    5750 3500
@@ -437,11 +437,9 @@ Connection ~ 1900 1150
 Wire Wire Line
 	4250 1150 4550 1150
 Connection ~ 4550 1150
-Wire Wire Line
-	5650 3350 5700 3350
-Text Label 5900 3050 0    50   ~ 0
+Text Label 6300 3050 0    50   ~ 0
 Rot_B_Pull_Up
-Text Label 5700 3050 2    50   ~ 0
+Text Label 6200 2850 0    50   ~ 0
 Rot_A_Pull_Up
 Text Label 10650 850  2    50   ~ 0
 VCC_Filtered
@@ -947,11 +945,6 @@ Wire Wire Line
 	3350 3450 3350 3400
 Wire Wire Line
 	3350 3400 3450 3400
-Wire Wire Line
-	5700 3050 5700 3350
-Connection ~ 5700 3350
-Wire Wire Line
-	5700 3350 6000 3350
 $Comp
 L Device:R_Small R16
 U 1 1 618D47A1
@@ -979,7 +972,7 @@ L Device:C_Small C6
 U 1 1 6180DD2F
 P 6350 3900
 F 0 "C6" H 6200 3900 50  0000 C CNN
-F 1 "1uF" H 6250 4000 50  0000 C CNN
+F 1 "100nF" H 6250 4000 50  0000 C CNN
 F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" H 6350 3900 50  0001 C CNN
 F 3 "~" H 6350 3900 50  0001 C CNN
 	1    6350 3900
@@ -988,26 +981,17 @@ $EndComp
 Wire Wire Line
 	5650 3550 5650 3650
 Wire Wire Line
-	5650 3650 5900 3650
-Wire Wire Line
 	5750 3450 5750 3500
 Wire Wire Line
 	5650 3450 5750 3450
 Wire Wire Line
-	5900 3050 5900 3650
-Wire Wire Line
-	5900 3650 6000 3650
-Connection ~ 5900 3650
-Wire Wire Line
-	6200 3650 6350 3650
+	6200 3650 6300 3650
 Wire Wire Line
 	6350 3650 6350 3800
 Wire Wire Line
 	6350 4000 6350 4050
 Wire Wire Line
 	6600 3800 6600 3350
-Wire Wire Line
-	6200 3350 6600 3350
 Wire Wire Line
 	6600 4000 6600 4050
 Wire Wire Line
@@ -1060,16 +1044,16 @@ Connection ~ 5400 1150
 $Comp
 L power:GND #PWR03
 U 1 1 6185A87A
-P 1500 4100
-F 0 "#PWR03" H 1500 3850 50  0001 C CNN
-F 1 "GND" H 1505 3927 50  0000 C CNN
-F 2 "" H 1500 4100 50  0001 C CNN
-F 3 "" H 1500 4100 50  0001 C CNN
-	1    1500 4100
+P 1250 3450
+F 0 "#PWR03" H 1250 3200 50  0001 C CNN
+F 1 "GND" H 1255 3277 50  0000 C CNN
+F 2 "" H 1250 3450 50  0001 C CNN
+F 3 "" H 1250 3450 50  0001 C CNN
+	1    1250 3450
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	1500 4050 1500 4100
+	1250 3400 1250 3450
 $Comp
 L power:GND #PWR0108
 U 1 1 617E51F9
@@ -1107,46 +1091,10 @@ Wire Notes Line
 Wire Wire Line
 	4700 1900 4700 2000
 Wire Wire Line
-	5100 5850 5350 5850
-Wire Wire Line
-	5150 6850 5350 6850
-Wire Wire Line
-	5150 6950 5350 6950
-$Comp
-L power:GND #PWR04
-U 1 1 61AF5AB2
-P 5850 7450
-F 0 "#PWR04" H 5850 7200 50  0001 C CNN
-F 1 "GND" H 5855 7277 50  0000 C CNN
-F 2 "" H 5850 7450 50  0001 C CNN
-F 3 "" H 5850 7450 50  0001 C CNN
-	1    5850 7450
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	5750 7350 5750 7450
-Wire Wire Line
-	5750 7450 5850 7450
-Wire Wire Line
-	5950 7350 5950 7450
-Wire Wire Line
-	5950 7450 5850 7450
-Connection ~ 5850 7450
-Wire Wire Line
-	5850 7350 5850 7450
-Wire Wire Line
 	9000 5700 9000 5750
 Wire Wire Line
 	9000 5750 9300 5750
 Connection ~ 9300 5750
-Wire Wire Line
-	6550 5850 6350 5850
-Wire Wire Line
-	6550 6050 6350 6050
-Wire Wire Line
-	6550 6950 6350 6950
-Wire Wire Line
-	6550 7050 6350 7050
 Wire Wire Line
 	7850 3050 8100 3050
 Wire Wire Line
@@ -1159,14 +1107,12 @@ Wire Wire Line
 	7950 5050 8150 5050
 Wire Wire Line
 	7950 5250 8150 5250
-Text Label 1400 3950 2    50   ~ 0
+Text Label 1150 2900 2    50   ~ 0
 VCC_Unregulated
 Wire Wire Line
-	1600 3950 1400 3950
+	1350 2900 1150 2900
 Text Label 750  1300 0    50   ~ 0
 VCC_Unregulated
-Wire Wire Line
-	6050 5000 6050 5250
 $Comp
 L power:GND #PWR0104
 U 1 1 61D660CD
@@ -1241,39 +1187,6 @@ Connection ~ 9250 2850
 Wire Wire Line
 	8950 2850 8950 2900
 $Comp
-L Connector_Generic:Conn_01x06 J12
-U 1 1 61804A99
-P 1800 6900
-F 0 "J12" H 1880 6892 50  0000 L CNN
-F 1 "Conn_01x06" V 2050 6400 50  0000 L CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_1x06_P2.54mm_Vertical" H 1800 6900 50  0001 C CNN
-F 3 "~" H 1800 6900 50  0001 C CNN
-	1    1800 6900
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector_Generic:Conn_01x08 J16
-U 1 1 618081B3
-P 3200 7050
-F 0 "J16" H 3280 7042 50  0000 L CNN
-F 1 "Conn_01x08" V 3450 6600 50  0000 L CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_1x08_P2.54mm_Vertical" H 3200 7050 50  0001 C CNN
-F 3 "~" H 3200 7050 50  0001 C CNN
-	1    3200 7050
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector_Generic:Conn_01x10 J17
-U 1 1 617F9C89
-P 3200 6000
-F 0 "J17" H 3280 5992 50  0000 L CNN
-F 1 "Conn_01x10" V 3400 5500 50  0000 L CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_1x10_P2.54mm_Vertical" H 3200 6000 50  0001 C CNN
-F 3 "~" H 3200 6000 50  0001 C CNN
-	1    3200 6000
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:PWR_FLAG #FLG0101
 U 1 1 61836C3D
 P 750 1000
@@ -1305,209 +1218,10 @@ Wire Wire Line
 Connection ~ 750  1150
 Wire Wire Line
 	750  1150 1400 1150
-Text Label 1350 5950 2    50   ~ 0
-Reset
-Text Label 6550 5650 0    50   ~ 0
-Reset
-Wire Wire Line
-	5950 5000 5950 5250
-$Comp
-L MCU_Module:Arduino_UNO_R3 A1
-U 1 1 6171E136
-P 5850 6250
-F 0 "A1" H 5850 7431 50  0000 C CNN
-F 1 "Arduino_UNO_R3" H 5850 7340 50  0000 C CNN
-F 2 "Module:Arduino_UNO_R3" H 5850 6250 50  0001 C CIN
-F 3 "https://www.arduino.cc/en/Main/arduinoBoardUno" H 5850 6250 50  0001 C CNN
-	1    5850 6250
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6350 5650 6550 5650
-$Comp
-L Connector_Generic:Conn_01x08 J13
-U 1 1 61805D97
-P 1800 6050
-F 0 "J13" H 1880 6042 50  0000 L CNN
-F 1 "Conn_01x08" V 2050 5550 50  0000 L CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_1x08_P2.54mm_Vertical" H 1800 6050 50  0001 C CNN
-F 3 "~" H 1800 6050 50  0001 C CNN
-	1    1800 6050
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1600 5950 1350 5950
-Text Label 1350 6050 2    50   ~ 0
-3V3
-Wire Wire Line
-	1600 6050 1350 6050
-Wire Wire Line
-	1350 6150 1600 6150
-Text Label 1350 6250 2    50   ~ 0
-GND
-Text Label 1350 6350 2    50   ~ 0
-GND
-Wire Wire Line
-	1350 6450 1600 6450
-Wire Wire Line
-	1600 6250 1350 6250
-Wire Wire Line
-	1350 6350 1600 6350
-Text Label 1350 5850 2    50   ~ 0
-IOREF
-Wire Wire Line
-	1350 5850 1600 5850
-Text Label 6550 5850 0    50   ~ 0
-IOREF
-Text Label 6550 6050 0    50   ~ 0
-AREF
-Text Label 1350 6150 2    50   ~ 0
-VCC_5V
-Text Label 5950 5000 2    50   ~ 0
-3V3
-Wire Wire Line
-	5750 5000 5750 5250
-Text Label 5950 7450 0    50   ~ 0
-GND
-Wire Wire Line
-	1600 7000 1400 7000
-Wire Wire Line
-	1400 7100 1600 7100
-Wire Wire Line
-	1600 7200 1400 7200
-Text Label 6550 6550 0    50   ~ 0
-A3
-Text Label 6550 6650 0    50   ~ 0
-A4
-Text Label 6550 6750 0    50   ~ 0
-A5
-Text Label 2850 6500 2    50   ~ 0
-D8
-Text Label 2850 6400 2    50   ~ 0
-D9
-Text Label 5100 6750 2    50   ~ 0
-D11
-Text Label 2850 6300 2    50   ~ 0
-D10
-Text Label 2850 6200 2    50   ~ 0
-D11
-Text Label 3250 5300 2    50   ~ 0
-Rot_B_Pull_Up
-Text Label 2650 6000 2    50   ~ 0
+Text Label 5900 4700 2    50   ~ 0
 Rot_A_Pull_Up
-Text Label 2850 5900 2    50   ~ 0
-GND
-Text Label 2850 5800 2    50   ~ 0
-AREF
-Wire Wire Line
-	3000 5900 2850 5900
-Wire Wire Line
-	2850 5800 3000 5800
-Text Label 5100 5650 2    50   ~ 0
-D0
-Text Label 5100 5750 2    50   ~ 0
-D1
-Wire Wire Line
-	5100 5750 5350 5750
-Wire Wire Line
-	5100 5650 5350 5650
-Text Label 2850 7450 2    50   ~ 0
-D0
-Text Label 2850 7350 2    50   ~ 0
-D1
-Text Label 2850 7250 2    50   ~ 0
-D2
-Text Label 2850 7150 2    50   ~ 0
-D3
-Text Label 2850 7050 2    50   ~ 0
-D4
-Text Label 2850 6950 2    50   ~ 0
-D5
-Text Label 2850 6850 2    50   ~ 0
-D6
-Text Label 2850 6750 2    50   ~ 0
-D7
-Wire Wire Line
-	2850 6950 3000 6950
-Wire Wire Line
-	2850 7350 3000 7350
-Wire Wire Line
-	3000 7450 2850 7450
-Text Label 6550 6950 0    50   ~ 0
-SDA
-Text Label 6550 7050 0    50   ~ 0
-SCL
-Text Label 2850 5600 2    50   ~ 0
-SCL
-Text Label 2850 5700 2    50   ~ 0
-SDA
-Wire Wire Line
-	2850 5700 3000 5700
-Wire Wire Line
-	3000 5600 2850 5600
-Wire Wire Line
-	1350 5750 1600 5750
-NoConn ~ 1350 5750
-Text Label 5100 6650 2    50   ~ 0
-D10
-Text Label 5100 6550 2    50   ~ 0
-D9
-Text Label 5100 6450 2    50   ~ 0
-D8
-Text Label 5100 6350 2    50   ~ 0
-D7
-Text Label 5100 6250 2    50   ~ 0
-D6
-Text Label 5100 6150 2    50   ~ 0
-D5
-Text Label 5100 6050 2    50   ~ 0
-D4
-Text Label 5100 5950 2    50   ~ 0
-D3
-Text Label 5100 5850 2    50   ~ 0
-D2
-Text Label 6550 6450 0    50   ~ 0
-A2
-Text Label 6550 6350 0    50   ~ 0
-A1
-Text Label 6550 6250 0    50   ~ 0
-A0
-Text Label 1400 6700 2    50   ~ 0
-A0
-Text Label 1400 7200 2    50   ~ 0
-A5
-Text Label 1400 7100 2    50   ~ 0
-A4
-Text Label 1400 7000 2    50   ~ 0
-A3
-Text Label 1400 6800 2    50   ~ 0
-A1
-Text Label 1400 6900 2    50   ~ 0
-A2
-Wire Wire Line
-	6550 6750 6350 6750
-Wire Wire Line
-	6550 6650 6350 6650
-Wire Wire Line
-	6550 6550 6350 6550
-Wire Wire Line
-	6550 6450 6350 6450
-Wire Wire Line
-	6350 6350 6550 6350
-Wire Wire Line
-	6550 6250 6350 6250
-Text Label 2650 7050 2    50   ~ 0
-L1_Sense
-Text Label 2650 7150 2    50   ~ 0
+Text Label 950  6300 2    50   ~ 0
 L2_Sense
-Text Label 2650 7250 2    50   ~ 0
-L3_Sense
-Text Label 6050 5000 0    50   ~ 0
-VCC_5V
-Text Label 5750 5000 2    50   ~ 0
-VIN
-Text Label 1350 6450 2    50   ~ 0
-VIN
 $Comp
 L power:PWR_FLAG #FLG0103
 U 1 1 61C961E6
@@ -1539,43 +1253,33 @@ Wire Wire Line
 	3750 3700 3750 3900
 Text Label 5550 1150 2    50   ~ 0
 VCC_Filtered
-Text Notes 4550 6450 3    50   ~ 0
-PWM IO's
-Text Notes 4700 5200 0    50   ~ 0
-Pull Down EN Pin\n
-Wire Wire Line
-	5350 6150 5100 6150
-Wire Wire Line
-	5100 6050 5350 6050
-Wire Wire Line
-	5100 5950 5350 5950
-Text Label 2350 2850 0    50   ~ 0
+Text Label 2250 2850 0    50   ~ 0
 L1_Motor
 Wire Wire Line
-	2200 3500 2350 3500
+	2100 3550 2250 3550
 Wire Wire Line
-	2200 3600 2350 3600
+	2100 3650 2250 3650
 Wire Wire Line
-	2200 3400 2350 3400
+	2100 3450 2250 3450
 Wire Wire Line
-	2350 3300 2200 3300
+	2250 3350 2100 3350
 Wire Wire Line
-	2200 3050 2350 3050
+	2100 3050 2250 3050
 Wire Wire Line
-	2350 2950 2200 2950
+	2250 2950 2100 2950
 Wire Wire Line
-	2350 2850 2200 2850
-Text Label 2350 3600 0    50   ~ 0
+	2250 2850 2100 2850
+Text Label 2250 3650 0    50   ~ 0
 VCC_5V
-Text Label 2350 2950 0    50   ~ 0
+Text Label 2250 2950 0    50   ~ 0
 L2_Motor
-Text Label 2350 3050 0    50   ~ 0
+Text Label 2250 3050 0    50   ~ 0
 L3_Motor
-Text Label 2350 3300 0    50   ~ 0
+Text Label 2250 3550 0    50   ~ 0
 L1_Sense
-Text Label 2350 3400 0    50   ~ 0
+Text Label 2250 3450 0    50   ~ 0
 L2_Sense
-Text Label 2350 3500 0    50   ~ 0
+Text Label 2250 3350 0    50   ~ 0
 L3_Sense
 Wire Wire Line
 	750  1300 750  1150
@@ -1605,32 +1309,8 @@ Wire Notes Line
 	11050 4700 7500 4700
 Wire Notes Line
 	7500 4700 7500 6350
-Wire Notes Line
-	1050 5500 3500 5500
-Wire Notes Line
-	3500 5500 3500 7550
-Wire Notes Line
-	3500 7550 1050 7550
-Wire Notes Line
-	750  4550 2700 4550
-Wire Notes Line
-	2700 2600 750  2600
-Wire Notes Line
-	750  2600 750  4550
-Text Notes 1450 2550 0    50   ~ 0
+Text Notes 1950 2550 0    50   ~ 0
 Screw Terminal
-Text Notes 1900 5450 0    50   ~ 0
-Arduino Pin Configuration\n
-Wire Notes Line
-	4400 4900 6800 4900
-Wire Notes Line
-	6800 4900 6800 7700
-Wire Notes Line
-	6800 7700 4400 7700
-Wire Notes Line
-	4400 7700 4400 4900
-Text Notes 5650 4850 0    50   ~ 0
-Arduino\n
 Wire Notes Line
 	4900 2750 6900 2750
 Wire Notes Line
@@ -1658,152 +1338,480 @@ Half Bridge for L3\n
 $Comp
 L power:GND #PWR0103
 U 1 1 6188811D
-P 2300 3750
-F 0 "#PWR0103" H 2300 3500 50  0001 C CNN
-F 1 "GND" H 2305 3577 50  0000 C CNN
-F 2 "" H 2300 3750 50  0001 C CNN
-F 3 "" H 2300 3750 50  0001 C CNN
-	1    2300 3750
+P 2200 3800
+F 0 "#PWR0103" H 2200 3550 50  0001 C CNN
+F 1 "GND" H 2205 3627 50  0000 C CNN
+F 2 "" H 2200 3800 50  0001 C CNN
+F 3 "" H 2200 3800 50  0001 C CNN
+	1    2200 3800
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2200 3700 2300 3700
+	2100 3750 2200 3750
 Wire Wire Line
-	2300 3700 2300 3750
+	2200 3750 2200 3800
 $Comp
 L Connector_Generic:Conn_01x01 J8
 U 1 1 6185108B
-P 1800 3950
-F 0 "J8" H 1692 3725 50  0000 C CNN
-F 1 "Power Terminal" H 1550 4100 50  0000 C CNN
-F 2 "Connector:Banana_Jack_1Pin" H 1800 3950 50  0001 C CNN
-F 3 "~" H 1800 3950 50  0001 C CNN
-	1    1800 3950
+P 1550 2900
+F 0 "J8" H 1450 2750 50  0000 C CNN
+F 1 "Power Terminal" H 1300 3050 50  0000 C CNN
+F 2 "Connector:CalTest_CT3151" H 1550 2900 50  0001 C CNN
+F 3 "~" H 1550 2900 50  0001 C CNN
+	1    1550 2900
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	1500 4050 1600 4050
-Wire Notes Line
-	1050 5500 1050 7550
+	1250 3400 1350 3400
 Wire Wire Line
-	2650 7250 3000 7250
+	1950 7300 2300 7300
 Wire Wire Line
-	2650 7150 3000 7150
-Wire Wire Line
-	2650 7050 3000 7050
-Text Label 2650 6100 2    50   ~ 0
+	1950 7200 2300 7200
+Text Label 5900 4800 2    50   ~ 0
 Rot_B_Pull_Up
-Text Label 2850 6000 2    50   ~ 0
-D13
-Text Label 2850 6100 2    50   ~ 0
-D12
-Text Label 5150 6850 2    50   ~ 0
-D12
-Text Label 5150 6950 2    50   ~ 0
-D13
 Wire Wire Line
-	2650 6100 3000 6100
+	5900 4800 6250 4800
 Wire Wire Line
-	2650 6000 3000 6000
-Text Label 2650 6750 2    50   ~ 0
+	5900 4700 6250 4700
+Text Label 1950 6500 2    50   ~ 0
 L2_INH
-Text Label 2650 6850 2    50   ~ 0
+Text Label 1950 7300 2    50   ~ 0
 L3_INH
-Text Label 2650 6500 2    50   ~ 0
+Text Label 1950 5650 2    50   ~ 0
 L1_INH
-Text Label 2650 6400 2    50   ~ 0
+Text Label 1950 7200 2    50   ~ 0
 L3_IN
-Text Label 2650 6300 2    50   ~ 0
+Text Label 1950 6400 2    50   ~ 0
 L2_IN
-Text Label 2650 6200 2    50   ~ 0
+Text Label 1950 5550 2    50   ~ 0
 L1_IN
 Wire Wire Line
-	2650 6200 3000 6200
+	1950 5550 2300 5550
 Wire Wire Line
-	2650 6300 3000 6300
+	1950 5650 2300 5650
 Wire Wire Line
-	2650 6400 3000 6400
+	1950 6400 2300 6400
 Wire Wire Line
-	2650 6500 3000 6500
-Wire Wire Line
-	2650 6750 3000 6750
-Wire Wire Line
-	2650 6850 3000 6850
-Wire Wire Line
-	5350 6750 5100 6750
-Wire Wire Line
-	5100 6650 5350 6650
-Wire Wire Line
-	5100 6550 5350 6550
-Wire Wire Line
-	5100 6450 5350 6450
-Wire Wire Line
-	5100 6350 5350 6350
-Wire Wire Line
-	5100 6250 5350 6250
+	1950 6500 2300 6500
 $Comp
-L Connector_Generic:Conn_01x05 J?
+L Connector_Generic:Conn_01x05 J3
 U 1 1 61B20326
-P 2000 3500
-F 0 "J?" H 2080 3492 50  0000 L CNN
-F 1 "Conn_01x05" H 1550 3150 50  0000 L CNN
-F 2 "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-5_1x05_P5.00mm_Horizontal" H 2000 3500 50  0001 C CNN
-F 3 "~" H 2000 3500 50  0001 C CNN
-	1    2000 3500
-	-1   0    0    1   
-$EndComp
-$Comp
-L Connector_Generic:Conn_01x03 J?
-U 1 1 61B21A80
-P 2000 2950
-F 0 "J?" H 2080 2942 50  0000 L CNN
-F 1 "Conn_01x03" H 1550 2700 50  0000 L CNN
-F 2 "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-3_1x03_P5.00mm_Horizontal" H 2000 2950 50  0001 C CNN
-F 3 "~" H 2000 2950 50  0001 C CNN
-	1    2000 2950
-	-1   0    0    1   
-$EndComp
-NoConn ~ 1250 3400
-NoConn ~ 1250 3300
-NoConn ~ 1250 3200
-Wire Wire Line
-	1150 3200 1250 3200
-Wire Wire Line
-	1150 3300 1250 3300
-Wire Wire Line
-	1250 3400 1150 3400
-$Comp
-L Connector_Generic:Conn_01x06 J10
-U 1 1 61CCE6B7
-P 950 3100
-F 0 "J10" H 1030 3092 50  0000 L CNN
-F 1 "Conn_01x06" H 600 3450 50  0000 L CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_1x06_P2.54mm_Vertical" H 950 3100 50  0001 C CNN
-F 3 "~" H 950 3100 50  0001 C CNN
-	1    950  3100
+P 1900 3550
+F 0 "J3" H 1950 3600 50  0000 L CNN
+F 1 "Conn_01x05" H 1400 3900 50  0000 L CNN
+F 2 "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-5_1x05_P5.00mm_Horizontal" H 1900 3550 50  0001 C CNN
+F 3 "~" H 1900 3550 50  0001 C CNN
+	1    1900 3550
 	-1   0    0    -1  
 $EndComp
-Text Label 1250 6700 2    50   ~ 0
+$Comp
+L Connector_Generic:Conn_01x03 J2
+U 1 1 61B21A80
+P 1900 2950
+F 0 "J2" H 1950 2900 50  0000 L CNN
+F 1 "Conn_01x03" H 1450 2700 50  0000 L CNN
+F 2 "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-3_1x03_P5.00mm_Horizontal" H 1900 2950 50  0001 C CNN
+F 3 "~" H 1900 2950 50  0001 C CNN
+	1    1900 2950
+	-1   0    0    1   
+$EndComp
+Text Label 1950 5750 2    50   ~ 0
 L1_IS
-Text Label 1250 6800 2    50   ~ 0
+Text Label 1950 6600 2    50   ~ 0
 L2_IS
-Text Label 1250 6900 2    50   ~ 0
+Text Label 1950 7400 2    50   ~ 0
 L3_IS
 $Comp
-L Connector_Generic:Conn_01x01 J?
+L Connector_Generic:Conn_01x01 J1
 U 1 1 61C0A03B
-P 1800 4450
-F 0 "J?" H 1692 4225 50  0000 C CNN
-F 1 "Power Terminal" H 1550 4600 50  0000 C CNN
-F 2 "Connector:Banana_Jack_1Pin" H 1800 4450 50  0001 C CNN
-F 3 "~" H 1800 4450 50  0001 C CNN
-	1    1800 4450
+P 1550 3400
+F 0 "J1" H 1442 3175 50  0000 C CNN
+F 1 "Ground Terminal" H 1300 3550 50  0000 C CNN
+F 2 "Connector:CalTest_CT3151" H 1550 3400 50  0001 C CNN
+F 3 "~" H 1550 3400 50  0001 C CNN
+	1    1550 3400
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	1250 6700 1600 6700
+	1950 5750 2300 5750
 Wire Wire Line
-	1250 6800 1600 6800
+	1950 6600 2300 6600
 Wire Wire Line
-	1250 6900 1600 6900
+	1950 7400 2300 7400
+$Comp
+L Connector_Generic:Conn_01x02 J4
+U 1 1 6196490E
+P 6450 4700
+F 0 "J4" H 6530 4692 50  0000 L CNN
+F 1 "Conn_01x02" H 5900 4800 50  0000 L CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical" H 6450 4700 50  0001 C CNN
+F 3 "~" H 6450 4700 50  0001 C CNN
+	1    6450 4700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x04 J5
+U 1 1 619675DF
+P 2500 5550
+F 0 "J5" H 2580 5542 50  0000 L CNN
+F 1 "Conn_01x04" H 2000 5750 50  0000 L CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical" H 2500 5550 50  0001 C CNN
+F 3 "~" H 2500 5550 50  0001 C CNN
+	1    2500 5550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x04 J6
+U 1 1 619C0436
+P 2500 6400
+F 0 "J6" H 2580 6392 50  0000 L CNN
+F 1 "Conn_01x04" H 2000 6600 50  0000 L CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical" H 2500 6400 50  0001 C CNN
+F 3 "~" H 2500 6400 50  0001 C CNN
+	1    2500 6400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x04 J7
+U 1 1 619FDC23
+P 2500 7200
+F 0 "J7" H 2580 7192 50  0000 L CNN
+F 1 "Conn_01x04" H 2000 7400 50  0000 L CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical" H 2500 7200 50  0001 C CNN
+F 3 "~" H 2500 7200 50  0001 C CNN
+	1    2500 7200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x02 J9
+U 1 1 61BA226F
+P 1350 4050
+F 0 "J9" H 1430 4042 50  0000 L CNN
+F 1 "Conn_01x02" H 800 4150 50  0000 L CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical" H 1350 4050 50  0001 C CNN
+F 3 "~" H 1350 4050 50  0001 C CNN
+	1    1350 4050
+	1    0    0    -1  
+$EndComp
+Text Label 950  4050 2    50   ~ 0
+VCC_5V
+$Comp
+L power:GND #PWR04
+U 1 1 61BA5950
+P 950 4200
+F 0 "#PWR04" H 950 3950 50  0001 C CNN
+F 1 "GND" H 955 4027 50  0000 C CNN
+F 2 "" H 950 4200 50  0001 C CNN
+F 3 "" H 950 4200 50  0001 C CNN
+	1    950  4200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	950  4050 1150 4050
+Wire Wire Line
+	1150 4150 950  4150
+Wire Wire Line
+	950  4150 950  4200
+Wire Wire Line
+	5650 3650 5950 3650
+Wire Wire Line
+	5650 3350 5750 3350
+Wire Wire Line
+	6300 3050 6300 3650
+Connection ~ 6300 3650
+Wire Wire Line
+	6300 3650 6350 3650
+Wire Wire Line
+	1350 5450 1500 5450
+Wire Wire Line
+	1500 5800 1500 5850
+$Comp
+L power:GND #PWR05
+U 1 1 619312B0
+P 1500 5850
+F 0 "#PWR05" H 1500 5600 50  0001 C CNN
+F 1 "GND" H 1505 5677 50  0000 C CNN
+F 2 "" H 1500 5850 50  0001 C CNN
+F 3 "" H 1500 5850 50  0001 C CNN
+	1    1500 5850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1500 5450 1500 5600
+$Comp
+L Device:C_Small C26
+U 1 1 61C35583
+P 1500 5700
+F 0 "C26" H 1350 5700 50  0000 C CNN
+F 1 "1nF" H 1400 5800 50  0000 C CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" H 1500 5700 50  0001 C CNN
+F 3 "~" H 1500 5700 50  0001 C CNN
+	1    1500 5700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R18
+U 1 1 61C3557D
+P 1250 5450
+F 0 "R18" V 1400 5500 50  0000 R CNN
+F 1 "10k" V 1300 5550 50  0000 R CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder" H 1250 5450 50  0001 C CNN
+F 3 "~" H 1250 5450 50  0001 C CNN
+	1    1250 5450
+	0    -1   -1   0   
+$EndComp
+Text Label 950  5450 2    50   ~ 0
+L1_Sense
+Wire Wire Line
+	1350 7100 1500 7100
+Wire Wire Line
+	1500 7450 1500 7500
+$Comp
+L power:GND #PWR07
+U 1 1 6197CE62
+P 1500 7500
+F 0 "#PWR07" H 1500 7250 50  0001 C CNN
+F 1 "GND" H 1505 7327 50  0000 C CNN
+F 2 "" H 1500 7500 50  0001 C CNN
+F 3 "" H 1500 7500 50  0001 C CNN
+	1    1500 7500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1500 7100 1500 7250
+$Comp
+L Device:C_Small C28
+U 1 1 6197CE69
+P 1500 7350
+F 0 "C28" H 1350 7350 50  0000 C CNN
+F 1 "1nF" H 1400 7450 50  0000 C CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" H 1500 7350 50  0001 C CNN
+F 3 "~" H 1500 7350 50  0001 C CNN
+	1    1500 7350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R20
+U 1 1 6197CE6F
+P 1250 7100
+F 0 "R20" V 1400 7150 50  0000 R CNN
+F 1 "10k" V 1300 7200 50  0000 R CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder" H 1250 7100 50  0001 C CNN
+F 3 "~" H 1250 7100 50  0001 C CNN
+	1    1250 7100
+	0    -1   -1   0   
+$EndComp
+Text Label 950  7100 2    50   ~ 0
+L3_Sense
+Connection ~ 1500 5450
+Connection ~ 1500 7100
+Wire Wire Line
+	1350 6300 1500 6300
+Wire Wire Line
+	950  6300 1050 6300
+Wire Wire Line
+	1500 6650 1500 6700
+$Comp
+L power:GND #PWR06
+U 1 1 61A01316
+P 1500 6700
+F 0 "#PWR06" H 1500 6450 50  0001 C CNN
+F 1 "GND" H 1505 6527 50  0000 C CNN
+F 2 "" H 1500 6700 50  0001 C CNN
+F 3 "" H 1500 6700 50  0001 C CNN
+	1    1500 6700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1500 6300 1500 6450
+$Comp
+L Device:C_Small C27
+U 1 1 61A0131D
+P 1500 6550
+F 0 "C27" H 1350 6550 50  0000 C CNN
+F 1 "1nF" H 1400 6650 50  0000 C CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" H 1500 6550 50  0001 C CNN
+F 3 "~" H 1500 6550 50  0001 C CNN
+	1    1500 6550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R19
+U 1 1 61A01323
+P 1250 6300
+F 0 "R19" V 1400 6350 50  0000 R CNN
+F 1 "10k" V 1300 6400 50  0000 R CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder" H 1250 6300 50  0001 C CNN
+F 3 "~" H 1250 6300 50  0001 C CNN
+	1    1250 6300
+	0    -1   -1   0   
+$EndComp
+Connection ~ 1500 6300
+Text Notes -250 6050 2    50   ~ 0
+Tau = 30 us
+Text Notes 5000 4200 0    50   ~ 0
+Tau = 3 ms 
+Wire Notes Line
+	2700 4550 2700 2600
+Wire Notes Line
+	2700 4550 1750 4550
+Wire Notes Line
+	1750 4550 1750 2600
+Wire Notes Line
+	1750 2600 2700 2600
+Wire Notes Line
+	1650 2600 1650 3700
+Wire Notes Line
+	1650 3700 500  3700
+Wire Notes Line
+	500  3700 500  2600
+Wire Notes Line
+	500  2600 1650 2600
+Text Notes 800  2550 0    50   ~ 0
+Power Terminal\n
+Wire Notes Line
+	2800 5150 550  5150
+Wire Notes Line
+	550  5150 550  7750
+Wire Notes Line
+	550  7750 2800 7750
+Wire Notes Line
+	2800 5150 2800 7750
+Wire Notes Line
+	550  3850 1550 3850
+Wire Notes Line
+	1550 3850 1550 4450
+Wire Notes Line
+	1550 4450 550  4450
+Wire Notes Line
+	550  4450 550  3850
+Wire Notes Line
+	6650 4450 6650 4950
+Wire Notes Line
+	6650 4950 5250 4950
+Wire Notes Line
+	5250 4950 5250 4450
+Wire Notes Line
+	5250 4450 6650 4450
+Text Notes 700  3800 0    50   ~ 0
+5V Power Connector\n
+Text Notes 5500 4400 0    50   ~ 0
+Rotary Encoder Connector\n
+$Comp
+L Device:R_Small R24
+U 1 1 618BE346
+P 5750 3100
+F 0 "R24" V 5900 3150 50  0000 R CNN
+F 1 "10k" V 5800 3200 50  0000 R CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder" H 5750 3100 50  0001 C CNN
+F 3 "~" H 5750 3100 50  0001 C CNN
+	1    5750 3100
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	6200 2850 6200 3350
+Connection ~ 6200 3350
+Wire Wire Line
+	6200 3350 6600 3350
+Wire Wire Line
+	5750 3200 5750 3350
+Connection ~ 5750 3350
+Wire Wire Line
+	5750 3350 6000 3350
+$Comp
+L Device:R_Small R25
+U 1 1 61904EA6
+P 5950 3100
+F 0 "R25" V 6100 3150 50  0000 R CNN
+F 1 "10k" V 6000 3200 50  0000 R CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder" H 5950 3100 50  0001 C CNN
+F 3 "~" H 5950 3100 50  0001 C CNN
+	1    5950 3100
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	5950 3200 5950 3650
+Connection ~ 5950 3650
+Wire Wire Line
+	5950 3650 6000 3650
+Wire Wire Line
+	5950 3000 5950 2950
+Wire Wire Line
+	5950 2950 5750 2950
+Wire Wire Line
+	5750 2950 5750 3000
+Text Label 5750 2950 2    50   ~ 0
+VCC_5V
+Wire Wire Line
+	1050 6250 1050 6300
+Connection ~ 1050 6300
+Wire Wire Line
+	1050 6300 1150 6300
+Wire Wire Line
+	1500 7100 2300 7100
+Wire Wire Line
+	1050 6800 1050 6850
+Text Label 1050 6800 2    50   ~ 0
+VCC_5V
+$Comp
+L Device:R_Small R23
+U 1 1 61975DAD
+P 1050 6950
+F 0 "R23" V 1200 7000 50  0000 R CNN
+F 1 "10k" V 1100 7050 50  0000 R CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder" H 1050 6950 50  0001 C CNN
+F 3 "~" H 1050 6950 50  0001 C CNN
+	1    1050 6950
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1050 7100 1150 7100
+Wire Wire Line
+	950  7100 1050 7100
+Connection ~ 1050 7100
+Wire Wire Line
+	1050 7050 1050 7100
+Wire Wire Line
+	1500 6300 2300 6300
+Text Label 1050 5950 2    50   ~ 0
+VCC_5V
+Wire Wire Line
+	1050 6050 1050 5950
+$Comp
+L Device:R_Small R22
+U 1 1 61952AAA
+P 1050 6150
+F 0 "R22" V 1200 6200 50  0000 R CNN
+F 1 "10k" V 1100 6250 50  0000 R CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder" H 1050 6150 50  0001 C CNN
+F 3 "~" H 1050 6150 50  0001 C CNN
+	1    1050 6150
+	-1   0    0    1   
+$EndComp
+Text Notes 1250 5100 0    50   ~ 0
+Motor Control Connector\n
+Text Label 1050 5100 2    50   ~ 0
+VCC_5V
+Wire Wire Line
+	1500 5450 2300 5450
+Wire Wire Line
+	1050 5100 1050 5200
+Wire Wire Line
+	1050 5450 1150 5450
+Wire Wire Line
+	950  5450 1050 5450
+Connection ~ 1050 5450
+Wire Wire Line
+	1050 5400 1050 5450
+$Comp
+L Device:R_Small R21
+U 1 1 6192D640
+P 1050 5300
+F 0 "R21" V 1200 5350 50  0000 R CNN
+F 1 "10k" V 1100 5400 50  0000 R CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder" H 1050 5300 50  0001 C CNN
+F 3 "~" H 1050 5300 50  0001 C CNN
+	1    1050 5300
+	-1   0    0    1   
+$EndComp
 $EndSCHEMATC

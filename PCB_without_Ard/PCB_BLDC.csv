@@ -1,0 +1,114 @@
+﻿Source:,/home/chris/Schreibtisch/BLDC/bldc_ssh/BLDC_Project/PCB_without_Ard/PCB_BLDC.sch
+Date:,Fri 12 Nov 2021 08:55:26 PM CET
+Tool:,Eeschema 5.1.10
+Generator:,/usr/share/kicad/plugins/bom_csv_grouped_by_value.py
+Component Count:,72
+,
+Individual Components:,
+,
+Item,Qty,Reference(s),Value,LibPart,Footprint,Datasheet
+,,C1,10uF,Device:C_Small,Capacitor_SMD:C_1210_3225Metric_Pad1.33x2.70mm_HandSolder,~
+,,C2,10uF,Device:C_Small,Capacitor_SMD:C_1210_3225Metric_Pad1.33x2.70mm_HandSolder,~
+,,C3,1500uF,Device:C_Small,Capacitor_SMD:CP_Elec_16x17.5,~
+,,C4,10uF,Device:C_Small,Capacitor_SMD:C_1210_3225Metric_Pad1.33x2.70mm_HandSolder,~
+,,C5,1500uF,Device:C_Small,Capacitor_SMD:CP_Elec_16x17.5,~
+,,C6,100nF,Device:C_Small,Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,~
+,,C7,100nF,Device:C_Small,Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,~
+,,C8,1nF,Device:C_Small,Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,~
+,,C9,1nF,Device:C_Small,Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,~
+,,C10,1nF,Device:C_Small,Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,~
+,,C11,100nF,Device:C_Small,Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,~
+,,C12,100nF,Device:C_Small,Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,~
+,,C13,100nF,Device:C_Small,Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,~
+,,C14,220nF,Device:C_Small,Capacitor_SMD:C_Elec_5x5.4,~
+,,C15,220nF,Device:C_Small,Capacitor_SMD:C_Elec_5x5.4,~
+,,C16,220nF,Device:C_Small,Capacitor_SMD:C_Elec_5x5.4,~
+,,C17,220nF,Device:C_Small,Capacitor_SMD:C_Elec_5x5.4,~
+,,C18,220nF,Device:C_Small,Capacitor_SMD:C_Elec_5x5.4,~
+,,C19,220nF,Device:C_Small,Capacitor_SMD:C_Elec_5x5.4,~
+,,C20,100nF,Device:C_Small,Capacitor_SMD:C_Elec_5x5.4,~
+,,C21,100nF,Device:C_Small,Capacitor_SMD:C_Elec_5x5.4,~
+,,C22,100nF,Device:C_Small,Capacitor_SMD:C_Elec_5x5.4,~
+,,C23,470nF,Device:C_Small,Capacitor_SMD:C_Elec_5x5.4,~
+,,C24,470nF,Device:C_Small,Capacitor_SMD:C_Elec_5x5.4,~
+,,C25,470nF,Device:C_Small,Capacitor_SMD:C_Elec_5x5.4,~
+,,C26,1nF,Device:C_Small,Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,~
+,,C27,1nF,Device:C_Small,Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,~
+,,C28,1nF,Device:C_Small,Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,~
+,,D1,12V,Device:D_Zener_Small,Diode_SMD:D_SOD-123,~
+,,D2,D_Schottky,Device:D_Schottky,Diode_SMD:D_SMB_Handsoldering,~
+,,D3,LED,Device:LED,LED_SMD:LED_1206_3216Metric_Pad1.42x1.75mm_HandSolder,~
+,,J1,Ground Terminal,Connector_Generic:Conn_01x01,Connector:CalTest_CT3151,~
+,,J2,Conn_01x03,Connector_Generic:Conn_01x03,"TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-3_1x03_P5.00mm_Horizontal",~
+,,J3,Conn_01x05,Connector_Generic:Conn_01x05,"TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-5_1x05_P5.00mm_Horizontal",~
+,,J4,Conn_01x02,Connector_Generic:Conn_01x02,Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical,~
+,,J5,Conn_01x04,Connector_Generic:Conn_01x04,Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical,~
+,,J6,Conn_01x04,Connector_Generic:Conn_01x04,Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical,~
+,,J7,Conn_01x04,Connector_Generic:Conn_01x04,Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical,~
+,,J8,Power Terminal,Connector_Generic:Conn_01x01,Connector:CalTest_CT3151,~
+,,J9,Conn_01x02,Connector_Generic:Conn_01x02,Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical,~
+,,L1,22uH,Device:L,Inductor_SMD:L_Wuerth_WE-PD-Typ-LS_Handsoldering,~
+,,Q1,IRF4905,Transistor_FET:IRF4905,Package_TO_SOT_SMD:TO-263-2,http://www.infineon.com/dgdl/irf4905.pdf?fileId=5546d462533600a4015355e32165197c
+,,R1,1k,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~
+,,R2,1M,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~
+,,R3,150,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~
+,,R4,1k,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~
+,,R5,1k,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~
+,,R6,1k,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~
+,,R7,0.51k,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~
+,,R8,10k,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~
+,,R9,10k,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~
+,,R10,0.51k,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~
+,,R11,10k,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~
+,,R12,10k,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~
+,,R13,0.51k,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~
+,,R14,10k,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~
+,,R15,10k,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~
+,,R16,10k,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~
+,,R17,10k,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~
+,,R18,10k,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~
+,,R19,10k,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~
+,,R20,10k,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~
+,,R21,10k,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~
+,,R22,10k,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~
+,,R23,10k,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~
+,,R24,10k,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~
+,,R25,10k,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~
+,,SW1,Rotary_Encoder,Device:Rotary_Encoder,Rotary_Encoder:RotaryEncoder_Alps_EC12E-Switch_Vertical_H20mm,~
+,,U1,MagI3C WPMDH1100XX1S / 173010542,Regulator_Linear:LF15_TO220,Package_SIP:SIP3_11.6x8.5mm,http://www.st.com/content/ccc/resource/technical/document/datasheet/c4/0e/7e/2a/be/bc/4c/bd/CD00000546.pdf/files/CD00000546.pdf/jcr:content/translations/en.CD00000546.pdf
+,,U2,BTN8962TA,btn8962ta:BTN8962TA,Package_TO_SOT_SMD:TO-263-7_TabPin8,
+,,U3,BTN8962TA,btn8962ta:BTN8962TA,Package_TO_SOT_SMD:TO-263-7_TabPin8,
+,,U4,BTN8962TA,btn8962ta:BTN8962TA,Package_TO_SOT_SMD:TO-263-7_TabPin8,
+,,,,,,
+,,,,,,
+,,,,,,
+Collated Components:,,,,,,
+,,,,,,
+Item,Qty,Reference(s),Value,LibPart,Footprint,Datasheet,Reseller,
+1,3,"C1, C2, C4",10uF,Device:C_Small,Capacitor_SMD:C_1210_3225Metric_Pad1.33x2.70mm_HandSolder,~,https://www.we-online.com/katalog/de/WCAP-CSGP-50VDC,885012209073
+2,2,"C3, C5",1500uF,Device:C_Small,Capacitor_SMD:CP_Elec_16x17.5,~,https://www.we-online.com/katalog/de/WCAP-ASLL,865060563012
+3,5,"C6, C7, C11, C12, C13",100nF,Device:C_Small,Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,~,https://www.we-online.com/katalog/de/WCAP-CSGP-50VDC,885012208087
+4,6,"C8, C9, C10, C26, C27, C28",1nF,Device:C_Small,Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,~,https://www.we-online.com/katalog/de/WCAP-CSGP-50VDC,885012008049
+5,6,"C14, C15, C16, C17, C18, C19",220nF,Device:C_Small,Capacitor_SMD:C_Elec_5x5.4,~,https://www.we-online.com/katalog/de/WCAP-ASNP,865250640002
+6,3,"C20, C21, C22",100nF,Device:C_Small,Capacitor_SMD:C_Elec_5x5.4,~,https://www.we-online.com/katalog/de/WCAP-ASNP,865250640001
+7,3,"C23, C24, C25",470nF,Device:C_Small,Capacitor_SMD:C_Elec_5x5.4,~,https://www.we-online.com/katalog/de/WCAP-ASNP,865250640004
+8,1,D1,12V,Device:D_Zener_Small,Diode_SMD:D_SOD-123,~,https://www.reichelt.de/zenerdiode-12-v-0-5-w-sod-123-mmsz-12t1g-ons-p219514.html?&trstct=pol_7&nbc=1,
+9,1,D2,D_Schottky,Device:D_Schottky,Diode_SMD:D_SMB_Handsoldering,~,https://www.reichelt.de/schottkydiode-40-v-2-a-do-214aa-stps-2l40u-stm-p216737.html?&trstct=pol_14&nbc=1,
+10,1,D3,LED,Device:LED,LED_SMD:LED_1206_3216Metric_Pad1.42x1.75mm_HandSolder,~,https://www.we-online.com/katalog/de/WL-SMCW#150120GS75000,150120GS75000
+11,1,J1,Ground Terminal,Connector_Generic:Conn_01x01,Connector:CalTest_CT3151,~,HS,
+12,1,J2,Conn_01x03,Connector_Generic:Conn_01x03,"TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-3_1x03_P5.00mm_Horizontal",~,,
+13,1,J3,Conn_01x05,Connector_Generic:Conn_01x05,"TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-5_1x05_P5.00mm_Horizontal",~,,
+14,2,"J4, J9",Conn_01x02,Connector_Generic:Conn_01x02,Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical,~,-,
+15,3,"J5, J6, J7",Conn_01x04,Connector_Generic:Conn_01x04,Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical,~,-,
+16,1,J8,Power Terminal,Connector_Generic:Conn_01x01,Connector:CalTest_CT3151,~,-,
+17,1,L1,22uH,Device:L,Inductor_SMD:L_Wuerth_WE-PD-Typ-LS_Handsoldering,~,https://www.we-online.com/katalog/de/AUTOMOTIVE_IND_WE_PD,7447709220
+18,1,Q1,IRF4905,Transistor_FET:IRF4905,Package_TO_SOT_SMD:TO-263-2,http://www.infineon.com/dgdl/irf4905.pdf?fileId=5546d462533600a4015355e32165197c,https://www.reichelt.de/mosfet-p-ch-55v-42a-0-02r-d-pak-irf4905spbf-p254693.html?&trstct=pos_1&nbc=1,
+19,4,"R1, R4, R5, R6",1k,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~,HS,
+20,1,R2,1M,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~,HS,
+21,1,R3,150,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~,HS,
+22,3,"R7, R10, R13",0.51k,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~,HS,
+23,16,"R8, R9, R11, R12, R14, R15, R16, R17, R18, R19, R20, R21, R22, R23, R24, R25",10k,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~,HS,
+24,1,SW1,Rotary_Encoder,Device:Rotary_Encoder,Rotary_Encoder:RotaryEncoder_Alps_EC12E-Switch_Vertical_H20mm,~,https://www.we-online.com/katalog/de/ENTV_11X13_75X26_6_THT_SHAFT_WITH_BUSHING#482020514001,482020514001
+25,1,U1,MagI3C WPMDH1100XX1S / 173010542,Regulator_Linear:LF15_TO220,Package_SIP:SIP3_11.6x8.5mm,http://www.st.com/content/ccc/resource/technical/document/datasheet/c4/0e/7e/2a/be/bc/4c/bd/CD00000546.pdf/files/CD00000546.pdf/jcr:content/translations/en.CD00000546.pdf,https://www.we-online.com/katalog/de/MAGIC_FDSM_FIXED_OUTPUT_VOLTAGE,173010542
+26,3,"U2, U3, U4",BTN8962TA,btn8962ta:BTN8962TA,Package_TO_SOT_SMD:TO-263-7_TabPin8,,HS,
+,,,,,,,,
