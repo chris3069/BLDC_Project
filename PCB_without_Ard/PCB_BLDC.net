@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /home/chris/Schreibtisch/BLDC/bldc_ssh/BLDC_Project/PCB_without_Ard/PCB_BLDC.sch)
-    (date "Tue 09 Nov 2021 08:35:41 PM CET")
+    (date "Fri 12 Nov 2021 07:55:49 PM CET")
     (tool "Eeschema 5.1.10")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -378,7 +378,7 @@
       (tstamp 617A012F))
     (comp (ref J8)
       (value "Power Terminal")
-      (footprint Connector:Banana_Jack_1Pin)
+      (footprint Connector:CalTest_CT3151)
       (datasheet ~)
       (libsource (lib Connector_Generic) (part Conn_01x01) (description "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"))
       (sheetpath (names /) (tstamps /))
@@ -399,7 +399,7 @@
       (tstamp 61B21A80))
     (comp (ref J1)
       (value "Ground Terminal")
-      (footprint Connector:Banana_Jack_1Pin)
+      (footprint Connector:CalTest_CT3151)
       (datasheet ~)
       (libsource (lib Connector_Generic) (part Conn_01x01) (description "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"))
       (sheetpath (names /) (tstamps /))
