@@ -84,7 +84,7 @@ Item,Qty,Reference(s),Value,LibPart,Footprint,Datasheet
 ,,,,,,
 Collated Components:,,,,,,
 ,,,,,,
-Item,Qty,Reference(s),Value,LibPart,Footprint,Datasheet,Reseller,
+Item,Qty,Reference(s),Value,LibPart,Footprint,Datasheet,Reseller
 1,3,"C1, C2, C4",10uF,Device:C_Small,Capacitor_SMD:C_1210_3225Metric_Pad1.33x2.70mm_HandSolder,~,https://www.we-online.com/katalog/de/WCAP-CSGP-50VDC,885012209073
 2,2,"C3, C5",1500uF,Device:C_Small,Capacitor_SMD:CP_Elec_16x17.5,~,https://www.we-online.com/katalog/de/WCAP-ASLL,865060563012
 3,5,"C6, C7, C11, C12, C13",100nF,Device:C_Small,Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,~,https://www.we-online.com/katalog/de/WCAP-CSGP-50VDC,885012208087
@@ -103,11 +103,11 @@ Item,Qty,Reference(s),Value,LibPart,Footprint,Datasheet,Reseller,
 16,1,J8,Power Terminal,Connector_Generic:Conn_01x01,Connector:CalTest_CT3151,~,-,
 17,1,L1,22uH,Device:L,Inductor_SMD:L_Wuerth_WE-PD-Typ-LS_Handsoldering,~,https://www.we-online.com/katalog/de/AUTOMOTIVE_IND_WE_PD,7447709220
 18,1,Q1,IRF4905,Transistor_FET:IRF4905,Package_TO_SOT_SMD:TO-263-2,http://www.infineon.com/dgdl/irf4905.pdf?fileId=5546d462533600a4015355e32165197c,https://www.reichelt.de/mosfet-p-ch-55v-42a-0-02r-d-pak-irf4905spbf-p254693.html?&trstct=pos_1&nbc=1,
-19,4,"R1, R4, R5, R6",1k,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~,HS,
-20,1,R2,1M,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~,HS,
-21,1,R3,150,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~,HS,
-22,3,"R7, R10, R13",0.51k,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~,HS,
-23,16,"R8, R9, R11, R12, R14, R15, R16, R17, R18, R19, R20, R21, R22, R23, R24, R25",10k,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~,HS,
+19,4,"R1, R4, R5, R6",1k,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~,https://www.reichelt.de/smd-widerstand-1206-910-kohm-250-mw-5--smd-1-4w-910k-p18387.html?&trstct=pol_5&nbc=1,
+20,1,R2,1M,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~,https://www.reichelt.de/smd-widerstand-1206-910-kohm-500-mw-1--rnd-155hp06-ep-p250957.html?&trstct=pol_0&nbc=1,
+21,1,R3,150,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~,https://www.reichelt.de/smd-widerstand-1206-150-ohm-250-mw-1--vis-crcw1206150-p238105.html?&trstct=pol_2&nbc=1,
+22,3,"R7, R10, R13",0.51k,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~,https://www.reichelt.de/smd-widerstand-1206-510-ohm-250-mw-5--smd-1-4w-510-p18347.html?&trstct=pol_0&nbc=1,
+23,16,"R8, R9, R11, R12, R14, R15, R16, R17, R18, R19, R20, R21, R22, R23, R24, R25",10k,Device:R_Small,Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,~,https://www.reichelt.de/smd-widerstand-1206-10-kohm-660-mw-1--pan-erjp08f1002-p238090.html?&trstct=pol_1&nbc=1,
 24,1,SW1,Rotary_Encoder,Device:Rotary_Encoder,Rotary_Encoder:RotaryEncoder_Alps_EC12E-Switch_Vertical_H20mm,~,https://www.we-online.com/katalog/de/ENTV_11X13_75X26_6_THT_SHAFT_WITH_BUSHING#482020514001,482020514001
 25,1,U1,MagI3C WPMDH1100XX1S / 173010542,Regulator_Linear:LF15_TO220,Package_SIP:SIP3_11.6x8.5mm,http://www.st.com/content/ccc/resource/technical/document/datasheet/c4/0e/7e/2a/be/bc/4c/bd/CD00000546.pdf/files/CD00000546.pdf/jcr:content/translations/en.CD00000546.pdf,https://www.we-online.com/katalog/de/MAGIC_FDSM_FIXED_OUTPUT_VOLTAGE,173010542
 26,3,"U2, U3, U4",BTN8962TA,btn8962ta:BTN8962TA,Package_TO_SOT_SMD:TO-263-7_TabPin8,,HS,
