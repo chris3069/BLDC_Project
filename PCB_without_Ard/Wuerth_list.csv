@@ -16,7 +16,7 @@ Item,Qty,Reference(s),Value,LibPart,Footprint,Seller
 13,1,J3,Conn_01x05,Connector_Generic:Conn_01x05,"TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-5_1x05_P5.00mm_Horizontal",https://www.we-online.com/katalog/de/PHD_2_54_SOCKET_HEADER_6130XX11821,61300211821,5 Pins
 14,2,"J4, J9",Conn_01x02,Connector_Generic:Conn_01x02,Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical,https://www.we-online.com/katalog/de/PHD_2_54_SOCKET_HEADER_6130XX11821,61300211821,2 Pins
 15,3,"J5, J6, J7",Conn_01x04,Connector_Generic:Conn_01x04,Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical,https://www.we-online.com/katalog/de/PHD_2_54_SOCKET_HEADER_6130XX11821,61300211821,4 Pins
-,,,,,,,,
+,,,,Push Button,https://www.we-online.com/katalog/de/TATV_12X12_THT_WASHABLE_4304X60XX7X6,,430476085716,
 ,,,,,,,,
 ,,,,,,,,
 ,,,,,,,,

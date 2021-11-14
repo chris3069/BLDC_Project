@@ -1483,17 +1483,17 @@ F 3 "~" H 2500 7200 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x02 J9
+L Connector_Generic:Conn_01x03 J9
 U 1 1 61BA226F
 P 1350 4050
 F 0 "J9" H 1430 4042 50  0000 L CNN
-F 1 "Conn_01x02" H 800 4150 50  0000 L CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical" H 1350 4050 50  0001 C CNN
+F 1 "Conn_01x02" H 1100 3800 50  0000 L CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x03_P2.54mm_Vertical" H 1350 4050 50  0001 C CNN
 F 3 "~" H 1350 4050 50  0001 C CNN
 	1    1350 4050
 	1    0    0    -1  
 $EndComp
-Text Label 950  4050 2    50   ~ 0
+Text Label 950  3950 2    50   ~ 0
 VCC_5V
 $Comp
 L power:GND #PWR04
@@ -1814,4 +1814,106 @@ F 3 "~" H 1050 5300 50  0001 C CNN
 	1    1050 5300
 	-1   0    0    1   
 $EndComp
+$Comp
+L Switch:SW_Push SW2
+U 1 1 6192548F
+P 3200 6150
+F 0 "SW2" V 3246 6102 50  0000 R CNN
+F 1 "SW_Push" V 3155 6102 50  0000 R CNN
+F 2 "Button_Switch_THT:SW_PUSH-12mm_Wuerth-430476085716" H 3200 6350 50  0001 C CNN
+F 3 "~" H 3200 6350 50  0001 C CNN
+	1    3200 6150
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R_Small R26
+U 1 1 6195C156
+P 3200 5650
+F 0 "R26" V 3350 5700 50  0000 R CNN
+F 1 "10k" V 3250 5750 50  0000 R CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder" H 3200 5650 50  0001 C CNN
+F 3 "~" H 3200 5650 50  0001 C CNN
+	1    3200 5650
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R_Small R27
+U 1 1 6195C4AE
+P 3700 5950
+F 0 "R27" V 3850 6000 50  0000 R CNN
+F 1 "10k" V 3750 6050 50  0000 R CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder" H 3700 5950 50  0001 C CNN
+F 3 "~" H 3700 5950 50  0001 C CNN
+	1    3700 5950
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:C_Small C29
+U 1 1 6195C953
+P 4050 6150
+F 0 "C29" H 3900 6150 50  0000 C CNN
+F 1 "1uF" H 3950 6250 50  0000 C CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" H 4050 6150 50  0001 C CNN
+F 3 "~" H 4050 6150 50  0001 C CNN
+	1    4050 6150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR08
+U 1 1 6195CF12
+P 3200 6450
+F 0 "#PWR08" H 3200 6200 50  0001 C CNN
+F 1 "GND" H 3205 6277 50  0000 C CNN
+F 2 "" H 3200 6450 50  0001 C CNN
+F 3 "" H 3200 6450 50  0001 C CNN
+	1    3200 6450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR09
+U 1 1 6195D25A
+P 4050 6450
+F 0 "#PWR09" H 4050 6200 50  0001 C CNN
+F 1 "GND" H 4055 6277 50  0000 C CNN
+F 2 "" H 4050 6450 50  0001 C CNN
+F 3 "" H 4050 6450 50  0001 C CNN
+	1    4050 6450
+	1    0    0    -1  
+$EndComp
+Text Label 3200 5300 2    50   ~ 0
+VCC_5V
+Wire Wire Line
+	3200 5300 3200 5550
+Wire Wire Line
+	3200 6350 3200 6450
+Wire Wire Line
+	3200 5750 3200 5950
+Wire Wire Line
+	4050 6450 4050 6250
+Wire Wire Line
+	4050 6050 4050 5950
+Wire Wire Line
+	3200 5950 3600 5950
+Wire Wire Line
+	3800 5950 4050 5950
+Connection ~ 3200 5950
+Connection ~ 4050 5950
+Wire Wire Line
+	4050 5950 4350 5950
+Wire Wire Line
+	950  3950 1150 3950
+Text Label 950  4050 2    50   ~ 0
+Reset_SW
+Text Label 4350 5950 0    50   ~ 0
+Reset_SW
+Wire Notes Line
+	2900 5150 2900 6750
+Wire Notes Line
+	2900 6750 4750 6750
+Wire Notes Line
+	4750 6750 4750 5150
+Wire Notes Line
+	4750 5150 2900 5150
+Text Notes 3500 5100 0    50   ~ 0
+Reet Push Button
 $EndSCHEMATC
