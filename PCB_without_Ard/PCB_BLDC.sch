@@ -1974,8 +1974,6 @@ Wire Notes Line
 	600  4750 1950 4750
 Wire Notes Line
 	1450 4050 1450 6400
-Wire Notes Line
-	2500 6400 2500 4050
 $Comp
 L Switch:SW_Push SW3
 U 1 1 619F1C43
@@ -2072,12 +2070,12 @@ Wire Notes Line
 	6350 6100 4500 6100
 Text Notes 5100 6050 0    50   ~ 0
 Stop Push Button
-Wire Notes Line
-	600  6400 4050 6400
 Text Label 5950 6900 0    50   ~ 0
 Stop_SW
 Text Label 950  4050 2    50   ~ 0
 Stop_SW
 Wire Wire Line
 	950  4150 1150 4150
+Wire Notes Line
+	600  6400 4050 6400
 $EndSCHEMATC
