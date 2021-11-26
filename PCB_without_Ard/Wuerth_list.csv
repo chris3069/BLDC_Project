@@ -1,0 +1,26 @@
+﻿Collated Components:
+
+Item,Qty,Reference(s),Value,LibPart,Footprint,Seller
+1,3,"C1, C2, C4",10uF,Device:C_Small,Capacitor_SMD:C_1210_3225Metric_Pad1.33x2.70mm_HandSolder,https://www.we-online.com/katalog/de/WCAP-CSGP-50VDC,885012209073
+2,2,"C3, C5",1500uF,Device:C_Small,Capacitor_SMD:CP_Elec_16x17.5,https://www.we-online.com/katalog/de/WCAP-ASLL,865060563012
+3,11,"C6, C7, C11, C12, C13",100nF,Device:C_Small,Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,https://www.we-online.com/katalog/de/WCAP-CSGP-50VDC,885012208087
+4,6,"C8, C9, C10, C26, C27, C28",1nF,Device:C_Small,Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,https://www.we-online.com/katalog/de/WCAP-CSGP-50VDC,885012008049
+5,6,"C14, C15, C16, C17, C18, C19",220nF,Device:C_Small,Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,https://www.we-online.com/katalog/de/WCAP-CSGP-50VDC ,885012208089,
+,,,,,,,,
+7,3,"C23, C24, C25",470nF,Device:C_Small,Capacitor_SMD:C_Elec_5x5.4,https://www.we-online.com/katalog/de/WCAP-ASLL,865060763010,
+10,1,D3,LED,Device:LED,LED_SMD:LED_1206_3216Metric_Pad1.42x1.75mm_HandSolder,https://www.we-online.com/katalog/de/WL-SMCW#150120GS75000,150120GS75000,
+17,1,L1,22uH,Device:L,Inductor_SMD:L_Wuerth_WE-PD-Typ-LS_Handsoldering,fire,7447709220,
+24,1,SW1,Rotary_Encoder,Device:Rotary_Encoder,Rotary_Encoder:RotaryEncoder_Alps_EC12E-Switch_Vertical_H20mm,https://www.we-online.com/katalog/de/ENTV_11X13_75X26_6_THT_SHAFT_WITH_BUSHING#482020514001,482020514001,
+25,1,U1,MagI3C WPMDH1100XX1S / 173010542,Regulator_Linear:LF15_TO220,Package_SIP:SIP3_11.6x8.5mm,https://www.we-online.com/katalog/de/MAGIC_FDSM_FIXED_OUTPUT_VOLTAGE,173010542,
+12,1,J2,Conn_01x03,Connector_Generic:Conn_01x03,"TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-3_1x03_P5.00mm_Horizontal",https://www.we-online.com/katalog/de/PHD_2_54_SOCKET_HEADER_6130XX11821,61300211821,3 Pins
+13,1,J3,Conn_01x05,Connector_Generic:Conn_01x05,"TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-5_1x05_P5.00mm_Horizontal",https://www.we-online.com/katalog/de/PHD_2_54_SOCKET_HEADER_6130XX11821,61300211821,5 Pins
+14,2,"J4, J9",Conn_01x02,Connector_Generic:Conn_01x02,Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical,https://www.we-online.com/katalog/de/PHD_2_54_SOCKET_HEADER_6130XX11821,61300211821,2 Pins
+15,3,"J5, J6, J7",Conn_01x04,Connector_Generic:Conn_01x04,Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical,https://www.we-online.com/katalog/de/PHD_2_54_SOCKET_HEADER_6130XX11821,61300211821,4 Pins
+,,,,Push Button,https://www.we-online.com/katalog/de/TATV_12X12_THT_WASHABLE_4304X60XX7X6,,430476085716,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
