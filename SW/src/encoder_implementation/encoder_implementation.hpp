@@ -2,8 +2,9 @@
 #define encoder_implementation_h
 
 #include <Arduino.h>
+#include "pin_config.hpp"
 
-int32_t getTargetSpeed(void);
+float getTargetSpeed(void);
 
 #endif
 

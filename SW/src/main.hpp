@@ -1,8 +1,12 @@
 #ifndef Main_h
 #define Main_h
 
-void mein_setup(void);
+#include <Arduino.h>
 
-void meine_loop(void);
+#include "encoder_implementation/encoder_implementation.hpp"
+#include "motor_implementation/motor_implementation.hpp"
+#include "button_implementation/button_implementation.hpp"
+
+#include "pin_config.hpp"
 
 #endif

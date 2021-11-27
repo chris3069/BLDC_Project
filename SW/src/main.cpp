@@ -1,22 +1,39 @@
-#include <Arduino.h>
-
-#include "encoder_implementation.hpp"
-#include "motor_implementation.hpp"
+#include "main.hpp"
 
 
-int32_t (*desired_speed)(void) = getTargetSpeed;
+
+void (*reset_motor)(void) = reset_motor_control;
+
+float (*desired_speed)(void) = getTargetSpeed;
+
+void reset_BLDC_control(void)
+{
+
+}
+
+void start_BLDC_control(void)
+{
+  //target speed = 0
+  digitalWrite(6, 1);
+   Serial.println("Enable motor control");
+}
 
 
 void setup() 
 {
+  Serial.begin(9600);
 
 motor_implementation_init();
+
+init_button(reset_motor_control);
+
+
 
 }
 
 void loop() 
 {
-
+  read_buttons();
   motor_implementation_control(desired_speed());
 
 }

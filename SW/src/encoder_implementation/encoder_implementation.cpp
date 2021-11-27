@@ -5,10 +5,10 @@
 
 Encoder Speed_encoder(12, 13);
 
+#define SPEED_DECREASE 0.1
 
 
-
-int32_t getTargetSpeed(void)
+float getTargetSpeed(void)
 { 
   static int32_t old_target_speed = INT32_MIN;
   static int32_t new_target_speed = INT32_MAX;
@@ -19,5 +19,6 @@ int32_t getTargetSpeed(void)
     old_target_speed = new_target_speed;
     Serial.println(new_target_speed);
   }
-  return new_target_speed;
+
+  return (float)new_target_speed*SPEED_DECREASE;
 }

@@ -3,9 +3,9 @@
 
 #include <Arduino.h>
 
-
 void motor_implementation_init(void);
-void motor_implementation_control(int32_t velocity);
+void motor_implementation_control(float velocity);
+void reset_motor_control(void);
 
 #endif
 

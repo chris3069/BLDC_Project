@@ -1,4 +1,6 @@
 #include "motor_implementation.hpp"
+#include "pin_config.hpp"
+
 #include <Wire.h>
 #include <SPI.h>
 #include <SimpleFOC.h>
@@ -34,13 +36,23 @@ void motor_implementation_init(void)
   // add target command T
   // command.add('T', doTarget, "target velocity");
 
-  Serial.begin(9600);
+
   Serial.println("Motor ready!");
   Serial.println("Set target velocity [rad/s]");
   _delay(1000);
 }
 
-void motor_implementation_control(int32_t velocity)
+void motor_implementation_control(float velocity)
 {
   motor.move(velocity);
 }
+
+void reset_motor_control(void)
+{
+    // set desired speed to 0
+  digitalWrite(INH, false);
+
+}
+
+
+
