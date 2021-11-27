@@ -6,12 +6,10 @@
 #include <SimpleFOC.h>
 
 
+
 BLDCMotor motor = BLDCMotor(3);
 
 BLDCDriver3PWM driver = BLDCDriver3PWM(9, 10, 11, 6);
-
-// //target variable
-// // float target_velocity = 0;
 
 
 void motor_implementation_init(void)
@@ -47,11 +45,19 @@ void motor_implementation_control(float velocity)
   motor.move(velocity);
 }
 
+// void reset_motor_control(void (*pResetTargetSpeed)())
 void reset_motor_control(void)
 {
     // set desired speed to 0
-  digitalWrite(INH, false);
+  // digitalWrite(INH, false);
+  // pResetTargetSpeed();
+  // Serial.println("Reset Button Ṕressed -> Reset Motor Control");
 
+}
+
+void start_motor_control(void)
+{
+  digitalWrite(INH, true);
 }
 
 

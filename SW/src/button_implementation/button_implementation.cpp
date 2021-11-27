@@ -5,30 +5,30 @@
 
 OneButton reset_button(reset_pin, true, false);
 
-void init_button(void (*pReset_motor)())
+void init_button(void (*pReset_motor)(), void (*pReset_Target_speed)())
 {
-  reset_button.attachClick(pReset_motor);
+//   reset_button.attachClick(pReset_motor);		// Push Button only triggers to 1 event
+  reset_button.attachClick(pReset_Target_speed);
 }
 
 
-	void read_swtich(void)
+void read_swtich(void (*pStart_motor)())
+{
+	bool start_pushbutton = digitalRead(stop_pin);
+	if (start_pushbutton == true)
 	{
-  	bool start_pushbutton = digitalRead(stop_pin);
-  	if (start_pushbutton == true)
-  	{
-  	  digitalWrite(stop_pin, true);
-  	}
+	  Serial.println("Switch pressed -> Start Motor Control");
+	  pStart_motor();
 	}
+}
 
 
-  // Serial.println("Reset push button pressed");
 
 
-	void read_buttons(void)
+void read_buttons(void (*pStart_motor)())
 {
 
-	read_swtich();
-
+  read_swtich(pStart_motor);
   reset_button.tick();
 
 }

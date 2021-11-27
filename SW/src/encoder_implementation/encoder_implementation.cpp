@@ -5,7 +5,7 @@
 
 Encoder Speed_encoder(12, 13);
 
-#define SPEED_DECREASE 0.1
+#define SPEED_DECREASE 0.01
 
 
 float getTargetSpeed(void)
@@ -21,4 +21,13 @@ float getTargetSpeed(void)
   }
 
   return (float)new_target_speed*SPEED_DECREASE;
+}
+
+void reset_target_speed (void)
+{
+  digitalWrite(INH, false);
+  const int32_t target_speed = 0;
+  Speed_encoder.write(target_speed);
+
+  Serial.println("Reset Button Ṕressed -> Reset Motor Control");
 }

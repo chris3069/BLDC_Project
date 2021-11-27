@@ -1,22 +1,12 @@
 #include "main.hpp"
 
+void (*pReset_motor) (void) = reset_motor_control;
 
+void (*pReset_target_speed)(void) = reset_target_speed;
 
-void (*reset_motor)(void) = reset_motor_control;
+void (*restart_motor)(void) = start_motor_control;
 
 float (*desired_speed)(void) = getTargetSpeed;
-
-void reset_BLDC_control(void)
-{
-
-}
-
-void start_BLDC_control(void)
-{
-  //target speed = 0
-  digitalWrite(6, 1);
-   Serial.println("Enable motor control");
-}
 
 
 void setup() 
@@ -25,15 +15,14 @@ void setup()
 
 motor_implementation_init();
 
-init_button(reset_motor_control);
-
+init_button(pReset_motor, pReset_target_speed);
 
 
 }
 
 void loop() 
 {
-  read_buttons();
+  read_buttons(restart_motor);
   motor_implementation_control(desired_speed());
 
 }

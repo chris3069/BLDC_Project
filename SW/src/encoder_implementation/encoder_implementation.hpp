@@ -5,6 +5,7 @@
 #include "pin_config.hpp"
 
 float getTargetSpeed(void);
+void reset_target_speed(void);
 
 #endif
 
