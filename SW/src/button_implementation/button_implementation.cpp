@@ -5,9 +5,8 @@
 
 OneButton reset_button(reset_pin, true, false);
 
-void init_button(void (*pReset_motor)(), void (*pReset_Target_speed)())
+void init_button(void (*pReset_Target_speed)())
 {
-//   reset_button.attachClick(pReset_motor);		// Push Button only triggers to 1 event
   reset_button.attachClick(pReset_Target_speed);
 }
 

@@ -6,7 +6,7 @@
 
 
 	void read_buttons(void (*pSW_button)());
-    void init_button(void (*pReset_motor)(),  void (*pReset_Target_speed)());
+    void init_button(void (*pReset_Target_speed)());
 
 
 #endif

@@ -1,29 +1,39 @@
 #include "main.hpp"
 
-void (*pReset_motor) (void) = reset_motor_control;
+Open_Loop Abstract_motor;
+
+// void (*pReset_motor) (void) = motor.reset_motor_control;
+
+// void (*pReset_motor) (void) = reset_motor_control;
 
 void (*pReset_target_speed)(void) = reset_target_speed;
 
-void (*restart_motor)(void) = start_motor_control;
+void (*restart_motor)(void) = Motor_Implementation::start_motor_control;
+
+// void (*restart_motor)(void) = start_motor_control;
 
 float (*desired_speed)(void) = getTargetSpeed;
+
 
 
 void setup() 
 {
   Serial.begin(9600);
 
-motor_implementation_init();
+  Abstract_motor.motor_implementation_init();
+  // motor_implementation_init();
 
-init_button(pReset_motor, pReset_target_speed);
+  init_button(pReset_target_speed);
 
 
 }
 
 void loop() 
 {
-  read_buttons(restart_motor);
-  motor_implementation_control(desired_speed());
+  read_buttons(restart_motor); 
+  // Abstract_motor.motor_implementation_init();
+  Abstract_motor.motor_control(desired_speed());
+  // motor_implementation_control(desired_speed());
 
 }
 

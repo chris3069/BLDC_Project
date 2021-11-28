@@ -7,6 +7,9 @@
 #include "motor_implementation/motor_implementation.hpp"
 #include "button_implementation/button_implementation.hpp"
 
+#include "motor_implementation/open-loop/open_loop_control.hpp"
+#include "motor_implementation/closed-loop/closed_loop_control.hpp"
+
 #include "pin_config.hpp"
 
 #endif
