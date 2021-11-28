@@ -14,14 +14,15 @@ class Motor_Implementation
     virtual void motor_control(float velocity) = 0;
     // virtual void reset_motor_control(void);
     static void start_motor_control(void);
+    Motor_Implementation(BLDCMotor *ext_motor, BLDCDriver3PWM *ext_driver);
     Motor_Implementation();
     virtual ~Motor_Implementation() = 0;
 
   protected:
 
-    BLDCMotor motor;
+    BLDCMotor *motor;
 
-    BLDCDriver3PWM driver;
+    BLDCDriver3PWM *driver;
 
 };
 

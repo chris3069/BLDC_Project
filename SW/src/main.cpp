@@ -1,16 +1,22 @@
 #include "main.hpp"
 
-Open_Loop Abstract_motor;
+  BLDCMotor *motor = new BLDCMotor(3);
+  BLDCDriver3PWM *driver = new BLDCDriver3PWM(9, 10, 11, 6);
+
+
+// Open_Loop Abstract_motor(motor, driver);
+
+// Open_Loop Abstract_motor;
 
 // void (*pReset_motor) (void) = motor.reset_motor_control;
 
 // void (*pReset_motor) (void) = reset_motor_control;
 
+// void (*restart_motor)(void) = start_motor_control;
+
 void (*pReset_target_speed)(void) = reset_target_speed;
 
 void (*restart_motor)(void) = Motor_Implementation::start_motor_control;
-
-// void (*restart_motor)(void) = start_motor_control;
 
 float (*desired_speed)(void) = getTargetSpeed;
 
@@ -20,20 +26,17 @@ void setup()
 {
   Serial.begin(9600);
 
+  Open_Loop Abstract_motor;
+
   Abstract_motor.motor_implementation_init();
-  // motor_implementation_init();
 
   init_button(pReset_target_speed);
 
-
-}
-
-void loop() 
-{
+  while(1)
+  {
   read_buttons(restart_motor); 
-  // Abstract_motor.motor_implementation_init();
   Abstract_motor.motor_control(desired_speed());
-  // motor_implementation_control(desired_speed());
+  }
 
 }
 

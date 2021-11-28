@@ -2,23 +2,44 @@
 #include "pin_config.hpp"
 
 Motor_Implementation::Motor_Implementation()
-  :motor(BLDCMotor(3)), driver(BLDCDriver3PWM(9, 10, 11, 6))
+  // :motor(BLDCMotor(3)), driver(BLDCDriver3PWM(9, 10, 11, 6))
 {
+  motor = new BLDCMotor(3);
+  driver = new BLDCDriver3PWM(9, 10, 11, 6);
       // driver config
   // power supply voltage [V]
-  driver.voltage_power_supply = 12;
-  driver.init();
+  driver->voltage_power_supply = 12;
+  driver->init();
   // link the motor and the driver
-  motor.linkDriver(&driver);
+  motor->linkDriver(driver);
 
   // limiting motor movements
-  motor.voltage_limit = 3;   // [V]
-  motor.velocity_limit = 5; // [rad/s] cca 500rpm
+  motor->voltage_limit = 3;   // [V]
+  motor->velocity_limit = 5; // [rad/s] cca 500rpm
+}
+
+
+Motor_Implementation::Motor_Implementation(BLDCMotor *ext_motor, BLDCDriver3PWM *ext_driver)
+  :motor(ext_motor), driver(ext_driver)
+{
+  // motor = new BLDCMotor(3);
+  // driver = new BLDCDriver3PWM(9, 10, 11, 6);
+      // driver config
+  // power supply voltage [V]
+  driver->voltage_power_supply = 12;
+  driver->init();
+  // link the motor and the driver
+  motor->linkDriver(driver);
+
+  // limiting motor movements
+  motor->voltage_limit = 3;   // [V]
+  motor->velocity_limit = 5; // [rad/s] cca 500rpm
 }
 
 Motor_Implementation::~Motor_Implementation()
 {
-  //left blank intentionally
+  delete driver;
+  delete motor;
 }
 
   
@@ -30,7 +51,7 @@ void Motor_Implementation::start_motor_control(void)
 
 void Motor_Implementation::motor_control(float velocity)
 {
-  motor.move(velocity);
+  motor->move(velocity);
 }
 
 
