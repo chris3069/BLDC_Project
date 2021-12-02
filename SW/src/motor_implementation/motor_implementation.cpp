@@ -33,7 +33,8 @@ Motor_Implementation::Motor_Implementation(BLDCMotor *ext_motor, BLDCDriver3PWM 
 
   // limiting motor movements
   motor->voltage_limit = 3;   // [V]
-  motor->velocity_limit = 5; // [rad/s] cca 500rpm
+  motor->velocity_limit = 50; // [rad/s] cca 500rpm
+  motor->current_limit = 2; // 2 A 
 }
 
 Motor_Implementation::~Motor_Implementation()

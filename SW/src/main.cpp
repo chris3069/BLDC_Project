@@ -1,7 +1,7 @@
 #include "main.hpp"
 
-  BLDCMotor *motor = new BLDCMotor(3);
-  BLDCDriver3PWM *driver = new BLDCDriver3PWM(9, 10, 11, 6);
+  // BLDCMotor *motor = new BLDCMotor(3);
+  // BLDCDriver3PWM *driver = new BLDCDriver3PWM(9, 10, 11, 6);
 
 
 // Open_Loop Abstract_motor(motor, driver);
