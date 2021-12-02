@@ -5,7 +5,7 @@
 
 Encoder Speed_encoder(12, 13);
 
-#define SPEED_DECREASE 0.01
+#define SPEED_DECREASE 0.1
 
 
 float getTargetSpeed(void)

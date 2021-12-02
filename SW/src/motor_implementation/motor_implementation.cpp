@@ -8,14 +8,14 @@ Motor_Implementation::Motor_Implementation()
   driver = new BLDCDriver3PWM(9, 10, 11, 6);
       // driver config
   // power supply voltage [V]
-  driver->voltage_power_supply = 12;
-  driver->init();
-  // link the motor and the driver
-  motor->linkDriver(driver);
+  // driver->voltage_power_supply = 12;
+  // driver->init();
+  // // link the motor and the driver
+  // motor->linkDriver(driver);
 
-  // limiting motor movements
-  motor->voltage_limit = 3;   // [V]
-  motor->velocity_limit = 5; // [rad/s] cca 500rpm
+  // // limiting motor movements
+  // motor->voltage_limit = 3;   // [V]
+  // motor->velocity_limit = 5; // [rad/s] cca 500rpm
 }
 
 
@@ -34,7 +34,7 @@ Motor_Implementation::Motor_Implementation(BLDCMotor *ext_motor, BLDCDriver3PWM 
   // limiting motor movements
   motor->voltage_limit = 3;   // [V]
   motor->velocity_limit = 50; // [rad/s] cca 500rpm
-  motor->current_limit = 2; // 2 A 
+  motor->current_limit = 200; // 2 A 
 }
 
 Motor_Implementation::~Motor_Implementation()
@@ -50,10 +50,10 @@ void Motor_Implementation::start_motor_control(void)
 }
 
 
-void Motor_Implementation::motor_control(float velocity)
-{
-  motor->move(velocity);
-}
+// void Motor_Implementation::motor_control(float velocity)
+// {
+//   motor->move(velocity);
+// }
 
 
 

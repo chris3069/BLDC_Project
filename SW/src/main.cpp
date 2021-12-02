@@ -20,23 +20,36 @@ void (*restart_motor)(void) = Motor_Implementation::start_motor_control;
 
 float (*desired_speed)(void) = getTargetSpeed;
 
-
+//  Motor_Implementation *Abstarct_motor;
 
 void setup() 
 {
-  Serial.begin(9600);
+  Serial.begin(115200);
+Serial.println("1 Main Setup");
+_delay(100);
 
-  Open_Loop Abstract_motor;
+  // Open_Loop *Abstract_motor = new Open_Loop;
+Closed_Loop *Abstract_motor = new Closed_Loop;
+_delay(100);
+Serial.println("2");
+  // Abstarct_motor = new Open_Loop;
+  // Closed_Loop Abstract_motor;
 
-  Abstract_motor.motor_implementation_init();
-
+  Abstract_motor->motor_implementation_init();
+Serial.println("3 Setup");
   init_button(pReset_target_speed);
 
   while(1)
   {
   read_buttons(restart_motor); 
-  Abstract_motor.motor_control(desired_speed());
+  Abstract_motor->motor_control(desired_speed());
   }
+
+}
+
+
+void loop()
+{
 
 }
 

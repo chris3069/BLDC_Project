@@ -16,6 +16,16 @@ Open_Loop::Open_Loop()
 
 void Open_Loop::motor_implementation_init(void)
 {
+  driver->voltage_power_supply = 12;
+  driver->init();
+  // link the motor and the driver
+  motor->linkDriver(driver);
+
+  // limiting motor movements
+  motor->voltage_limit = 3;   // [V]
+  motor->velocity_limit = 5; // [rad/s] cca 500rpm
+
+
     // open loop control config
   motor->controller = MotionControlType::velocity_openloop;
 
