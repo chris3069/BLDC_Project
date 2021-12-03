@@ -130,10 +130,12 @@ void setup() {
   motor.PID_velocity.I = 2;
   motor.PID_velocity.D = 0;
   // default voltage_power_supply
-  motor.voltage_limit = 6;
+  motor.voltage_limit = 12;
   // jerk control using voltage voltage ramp
   // default value is 300 volts per sec  ~ 0.3V per millisecond
   motor.PID_velocity.output_ramp = 1000;
+  motor.velocity_limit = 500; // [rad/s] cca 500rpm
+  motor.current_limit = 200; // 2 A 
 
   // velocity low pass filtering time constant
   motor.LPF_velocity.Tf = 0.01f;
@@ -141,7 +143,7 @@ void setup() {
   // use monitoring with serial
   Serial.begin(115200);
   // comment out if not needed
-  motor.useMonitoring(Serial);
+  // motor.useMonitoring(Serial);
 
   // initialize motor
   motor.init();
@@ -149,7 +151,7 @@ void setup() {
   motor.initFOC();
 
   // add target command T
-  command.add('T', doTarget, "target voltage");
+  // command.add('T', doTarget, "target voltage");
 
   Serial.println(F("Motor ready."));
   Serial.println(F("Set the target velocity using serial terminal:"));
@@ -179,7 +181,7 @@ void loop() {
   read_buttons(restart_motor); 
   target_velocity = desired_speed();
   // user communication
-  command.run();
+  // command.run();
 }
 
 
