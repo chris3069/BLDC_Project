@@ -4,7 +4,7 @@
 Motor_Implementation::Motor_Implementation()
   // :motor(BLDCMotor(3)), driver(BLDCDriver3PWM(9, 10, 11, 6))
 {
-  motor = new BLDCMotor(3);
+  motor = new BLDCMotor(11);
   driver = new BLDCDriver3PWM(9, 10, 11, 6);
       // driver config
   // power supply voltage [V]

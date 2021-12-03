@@ -25,7 +25,7 @@ Closed_Loop::Closed_Loop(BLDCMotor *ext_motor, BLDCDriver3PWM *ext_driver)
  {
    Serial.println("Pre_Init");
 
-  pSensor = new HallSensor(2, 3, 4, 3);
+  pSensor = new HallSensor(2, 3, 4, 11);
   //  currentsense->init();
   pSensor->init();
   pSensor->enableInterrupts(doA, doB); //, doC);
@@ -74,7 +74,7 @@ Serial.println("Init done");
     void doA()
     {
         pSensor->handleA();
-        Serial.println("Reading Sensor A");
+        // Serial.println("Reading Sensor A");
     }
 
     void doB()
