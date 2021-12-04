@@ -77,6 +77,8 @@ BLDCDriver3PWM driver = BLDCDriver3PWM(9, 10, 11, 6);
 // hall sensor instance
 HallSensor sensor = HallSensor(2, 3, 4, 11);
 
+InlineCurrentSense currentsense(1, 1, IS0, IS1, IS2);;
+
 void (*pReset_target_speed)(void) = reset_target_speed;
 float (*desired_speed)(void) = getTargetSpeed;
 void restart_motor(void)
@@ -108,6 +110,8 @@ void setup() {
   PciManager.registerListener(&listenerIndex);
   // link the motor to the sensor
   motor.linkSensor(&sensor);
+
+  currentsense.init();
 
   // driver config
   // power supply voltage [V]
@@ -144,7 +148,7 @@ void setup() {
   Serial.begin(115200);
   // comment out if not needed
   // motor.useMonitoring(Serial);
-
+motor.linkCurrentSense(&currentsense);     // include this function 
   // initialize motor
   motor.init();
   // align sensor and start FOC
