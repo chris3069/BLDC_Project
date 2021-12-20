@@ -1,173 +1,193 @@
-#include <Arduino_FreeRTOS.h>
-#include <Arduino.h>
-#include <semphr.h>  // add the FreeRTOS functions for Semaphores (or Flags).
-#include "Encoder.h"
+// Open Loop Control
+//////////////////////////////////////////////////////////////////////////////////////
 
-// Declare a mutex Semaphore Handle which we will use to manage the Serial Port.
-// It will be used to ensure only one Task is accessing this resource at any time.
-SemaphoreHandle_t xSerialSemaphore;
+// #include "main.hpp"
 
-// define two Tasks for DigitalRead & AnalogRead
-void TaskDigitalRead( void *pvParameters );
-void TaskAnalogRead( void *pvParameters );
-void TaskCalculateDirection(void *pvParamters);
+// void (*pReset_target_speed)(void) = reset_target_speed;
 
-  static int32_t oldDirection = INT32_MIN;
-  static int32_t newDirection = INT32_MAX;
+// void (*restart_motor)(void) = Motor_Implementation::start_motor_control;
 
-// the setup function runs once when you press reset or power the board
-void setup() {
+// float (*desired_speed)(void) = getTargetSpeed;
 
-  // initialize serial communication at 9600 bits per second:
-  Serial.begin(9600);
-  
-  while (!Serial) {
-    ; // wait for serial port to connect. Needed for native USB, on LEONARDO, MICRO, YUN, and other 32u4 based boards.
-  }
+// //  Motor_Implementation *Abstarct_motor;
 
-  // Semaphores are useful to stop a Task proceeding, where it should be paused to wait,
-  // because it is sharing a resource, such as the Serial port.
-  // Semaphores should only be used whilst the scheduler is running, but we can set it up here.
-  if ( xSerialSemaphore == NULL )  // Check to confirm that the Serial Semaphore has not already been created.
-  {
-    xSerialSemaphore = xSemaphoreCreateMutex();  // Create a mutex semaphore we will use to manage the Serial Port
-    if ( ( xSerialSemaphore ) != NULL )
-      xSemaphoreGive( ( xSerialSemaphore ) );  // Make the Serial Port available for use, by "Giving" the Semaphore.
-  }
+// void setup() 
+// {
+//   Serial.begin(115200);
+// Serial.println("1 Main Setup");
+// _delay(100);
 
-  // Now set up two Tasks to run independently.
-//   xTaskCreate(
-//     TaskDigitalRead
-//     ,  "DigitalRead"  // A name just for humans
-//     ,  128  // This stack size can be checked & adjusted by reading the Stack Highwater
-//     ,  NULL //Parameters for the task
-//     ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
-//     ,  NULL ); //Task Handle
+//   // Open_Loop *Abstract_motor = new Open_Loop;
+// Closed_Loop *Abstract_motor = new Closed_Loop;
+// _delay(100);
+// Serial.println("2");
+//   // Abstarct_motor = new Open_Loop;
+//   // Closed_Loop Abstract_motor;
 
-//   xTaskCreate(
-//     TaskAnalogRead
-//     ,  "AnalogRead" // A name just for humans
-//     ,  128  // Stack size
-//     ,  NULL //Parameters for the task
-//     ,  1  // Priority
-//     ,  NULL ); //Task Handle
+//   Abstract_motor->motor_implementation_init();
+// Serial.println("3 Setup");
+//   init_button(pReset_target_speed);
 
-//   // Now the Task scheduler, which takes over control of scheduling individual Tasks, is automatically started.
+//   while(1)
+//   {
+//   read_buttons(restart_motor); 
+//   Abstract_motor->motor_control(desired_speed());
+//   }
 // }
 
-  xTaskCreate(
-    TaskCalculateDirection
-    ,  "CalcualteDirection" // A name just for humans
-    ,  128  // Stack size
-    ,  NULL //Parameters for the task
-    ,  1  // Priority
-    ,  NULL ); //Task Handle
+////////////////////////////////////////////////////////////////////////////////////////////
 
-  // Now the Task scheduler, which takes over control of scheduling individual Tasks, is automatically started.
-}
+/**
+ *
+ * Velocity motion control example
+ * Steps:
+ * 1) Configure the motor and sensor
+ * 2) Run the code
+ * 3) Set the target velocity (in radians per second) from serial terminal
+ *
+ *
+ *
+ * NOTE :
+ * > Specifically for Arduino UNO example code for running velocity motion control using a hall sensor
+ * > Since Arduino UNO doesn't have enough interrupt pins we have to use software interrupt library PciManager.
+ *
+ * > If running this code with Nucleo or Bluepill or any other board which has more than 2 interrupt pins
+ * > you can supply doC directly to the sensor.enableInterrupts(doA,doB,doC) and avoid using PciManger
+ *
+ */
 
+// Closed Loop Control
 
-void loop()
+#include "pin_config.hpp"
+#include "button_implementation/button_implementation.hpp"
+#include "encoder_implementation/encoder_implementation.hpp"
+
+#include <SimpleFOC.h>
+// software interrupt library
+#include <PciManager.h>
+#include <PciListenerImp.h>
+
+// BLDC motor & driver instance
+BLDCMotor motor = BLDCMotor(11);
+BLDCDriver3PWM driver = BLDCDriver3PWM(9, 10, 11, 6);
+// Stepper motor & driver instance
+//StepperMotor motor = StepperMotor(50);
+//StepperDriver4PWM driver = StepperDriver4PWM(9, 5, 10, 6,  8);
+
+// hall sensor instance
+HallSensor sensor = HallSensor(2, 3, 4, 11);
+
+InlineCurrentSense currentsense(1, 1, IS0, IS1, IS2);;
+
+void (*pReset_target_speed)(void) = reset_target_speed;
+float (*desired_speed)(void) = getTargetSpeed;
+void restart_motor(void)
 {
-  // Empty. Things are done in Tasks.
+  digitalWrite(INH, true);
 }
 
-/*--------------------------------------------------*/
-/*---------------------- Tasks ---------------------*/
-/*--------------------------------------------------*/
 
+// Interrupt routine intialisation
+// channel A and B callbacks
+void doA(){sensor.handleA();}
+void doB(){sensor.handleB();}
+void doC(){sensor.handleC();}
+// If no available hadware interrupt pins use the software interrupt
+PciListenerImp listenerIndex(sensor.pinC, doC);
 
-void TaskCalculateDirection(void *pvParameters __attribute__((unused)) )
-{
+// velocity set point variable
+float target_velocity = 0;
+// instantiate the commander
+Commander command = Commander(Serial);
+void doTarget(char* cmd) { command.scalar(&target_velocity, cmd); }
 
-    Encoder encoder(2, 3);
+void setup() {
 
-  for (;;) // A Task shall never return or exit.
-  {
-    // read the input pin:
+  // initialize sensor sensor hardware
+  sensor.init();
+  sensor.enableInterrupts(doA, doB); //, doC);
+  // software interrupts
+  PciManager.registerListener(&listenerIndex);
+  // link the motor to the sensor
+  motor.linkSensor(&sensor);
 
-    newDirection = encoder.read();
+  currentsense.init();
 
-    if (newDirection != oldDirection) {
-    oldDirection = newDirection;
-    Serial.println(newDirection);
-    }
+  // driver config
+  // power supply voltage [V]
+  driver.voltage_power_supply = 12;
+  driver.init();
+  // link the motor and the driver
+  motor.linkDriver(&driver);
 
-    // See if we can obtain or "Take" the Serial Semaphore.
-    // If the semaphore is not available, wait 5 ticks of the Scheduler to see if it becomes free.
-    // if ( xSemaphoreTake( xSerialSemaphore, ( TickType_t ) 5 ) == pdTRUE )
-    // {
-    //   // We were able to obtain or "Take" the semaphore and can now access the shared resource.
-    //   // We want to have the Serial Port for us alone, as it takes some time to print,
-    //   // so we don't want it getting stolen during the middle of a conversion.
-    //   // print out the state of the button:
-    //   // Serial.println(buttonState);
+  // aligning voltage [V]
+  motor.voltage_sensor_align = 3;
 
-    //   xSemaphoreGive( xSerialSemaphore ); // Now free or "Give" the Serial Port for others.
-    // }
+  // set motion control loop to be used
+  motor.controller = MotionControlType::velocity;
 
-    vTaskDelay(1);  // one tick delay (15ms) in between reads for stability
-  }
+  // contoller configuration
+  // default parameters in defaults.h
+
+  // velocity PI controller parameters
+  motor.PID_velocity.P = 0.2f;
+  motor.PID_velocity.I = 2;
+  motor.PID_velocity.D = 0;
+  // default voltage_power_supply
+  motor.voltage_limit = 12;
+  // jerk control using voltage voltage ramp
+  // default value is 300 volts per sec  ~ 0.3V per millisecond
+  motor.PID_velocity.output_ramp = 1000;
+  motor.velocity_limit = 500; // [rad/s] cca 500rpm
+  motor.current_limit = 200; // 2 A 
+
+  // velocity low pass filtering time constant
+  motor.LPF_velocity.Tf = 0.01f;
+
+  // use monitoring with serial
+  Serial.begin(115200);
+  // comment out if not needed
+  // motor.useMonitoring(Serial);
+motor.linkCurrentSense(&currentsense);     // include this function 
+  // initialize motor
+  motor.init();
+  // align sensor and start FOC
+  motor.initFOC();
+
+  // add target command T
+  // command.add('T', doTarget, "target voltage");
+
+  Serial.println(F("Motor ready."));
+  Serial.println(F("Set the target velocity using serial terminal:"));
+
+    init_button(pReset_target_speed);
+
+  _delay(1000);
 }
 
-void TaskDigitalRead( void *pvParameters __attribute__((unused)) )  // This is a Task.
-{
-  /*
-    DigitalReadSerial
-    Reads a digital input on pin 2, prints the result to the serial monitor
 
-    This example code is in the public domain.
-  */
+void loop() {
+  // main FOC algorithm function
+  // the faster you run this function the better
+  // Arduino UNO loop  ~1kHz
+  // Bluepill loop ~10kHz
+  motor.loopFOC();
 
-  // digital pin 2 has a pushbutton attached to it. Give it a name:
-  uint8_t pushButton = 2;
+  // Motion control function
+  // velocity, position or voltage (defined in motor.controller)
+  // this function can be run at much lower frequency than loopFOC() function
+  // You can also use motor.move() and set the motor.target in the code
+  motor.move(target_velocity);
 
-  // make the pushbutton's pin an input:
-  pinMode(pushButton, INPUT);
-
-  for (;;) // A Task shall never return or exit.
-  {
-    // read the input pin:
-    
-
-    // See if we can obtain or "Take" the Serial Semaphore.
-    // If the semaphore is not available, wait 5 ticks of the Scheduler to see if it becomes free.
-    if ( xSemaphoreTake( xSerialSemaphore, ( TickType_t ) 5 ) == pdTRUE )
-    {
-      // We were able to obtain or "Take" the semaphore and can now access the shared resource.
-      // We want to have the Serial Port for us alone, as it takes some time to print,
-      // so we don't want it getting stolen during the middle of a conversion.
-      // print out the state of the button:
-      // Serial.println(buttonState);
-
-      xSemaphoreGive( xSerialSemaphore ); // Now free or "Give" the Serial Port for others.
-    }
-
-    vTaskDelay(1);  // one tick delay (15ms) in between reads for stability
-  }
+  // function intended to be used with serial plotter to monitor motor variables
+  // significantly slowing the execution down!!!!
+  // motor.monitor();
+  read_buttons(restart_motor); 
+  target_velocity = desired_speed();
+  // user communication
+  // command.run();
 }
 
-void TaskAnalogRead( void *pvParameters __attribute__((unused)) )  // This is a Task.
-{
 
-  for (;;)
-  {
-    // read the input on analog pin 0:
-    int sensorValue = analogRead(A0);
 
-    // See if we can obtain or "Take" the Serial Semaphore.
-    // If the semaphore is not available, wait 5 ticks of the Scheduler to see if it becomes free.
-    if ( xSemaphoreTake( xSerialSemaphore, ( TickType_t ) 5 ) == pdTRUE )
-    {
-      // We were able to obtain or "Take" the semaphore and can now access the shared resource.
-      // We want to have the Serial Port for us alone, as it takes some time to print,
-      // so we don't want it getting stolen during the middle of a conversion.
-      // print out the value you read:
-      // Serial.println(sensorValue);
 
-      xSemaphoreGive( xSerialSemaphore ); // Now free or "Give" the Serial Port for others.
-    }
-
-    vTaskDelay(1);  // one tick delay (15ms) in between reads for stability
-  }
-}
