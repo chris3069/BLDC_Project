@@ -1,43 +1,174 @@
 #include <mbed.h>
 
+// #include "encoder_implementation/own_rotary.hpp"
 #include "motor_implementation/own_open_loop/open_loop.hpp"
+
+class Encoder
+{
+  public:
+    Encoder();
+    ~Encoder();
+
+    int32_t get_rotary_angle(void);
+    void reset_rotary_angle(void);
+
+    private:
+    void rise_A(void);
+    void rise_B(void);
+    void fall_A(void);
+    void fall_B(void);
+
+    private:
+    InterruptIn rotary_encoderA;  
+    InterruptIn rotary_encoderB;
+    // Timeout synchronous_rpm;
+
+    volatile int32_t rotary_angle;
+    volatile bool voltage_level_a;
+    volatile bool voltage_level_b;
+    // _interrupt.rise(callback(this, &Encoder::change_angle));
+};
+
+void Encoder::rise_A(void)
+{
+  voltage_level_a = 1;
+  if (voltage_level_b == 1)
+  {
+    rotary_angle = rotary_angle +1;
+  }
+  else
+  {
+    --rotary_angle;
+  }
+}
+
+void Encoder::fall_A(void)
+{
+  voltage_level_a = 0;
+  if (voltage_level_b == 1)
+  {
+    --Encoder::rotary_angle;
+  }
+  else
+  {
+    ++rotary_angle;
+  }
+}
+
+void Encoder::rise_B(void)
+{
+  voltage_level_b = 1;
+  if (voltage_level_a == 1)
+  {
+    --rotary_angle;
+  }
+  else
+  {
+    ++rotary_angle;
+  }
+}
+
+void Encoder::fall_B(void)
+{
+  voltage_level_b = 0;
+  if (voltage_level_a == 1)
+  {
+    ++rotary_angle;
+  }
+  else
+  {
+    --rotary_angle;
+  }
+}
+
+int32_t Encoder::get_rotary_angle(void)
+{
+    return rotary_angle;
+}
+
+void Encoder::reset_rotary_angle(void)
+{
+    rotary_angle = 0;
+}
+
+Encoder::Encoder()
+    :rotary_encoderA(D12), rotary_encoderB(PA_11) 
+{
+    rotary_angle = 0;
+    rotary_encoderA.rise(callback(this, &Encoder::rise_A));
+    rotary_encoderA.fall(callback(this, &Encoder::fall_A));
+    rotary_encoderB.rise(callback(this, &Encoder::rise_B));
+    rotary_encoderB.fall(callback(this, &Encoder::fall_B));
+}
+
 
 #define MAXIMUM_BUFFER_SIZE 32
 
-// Open Loop Betrieb
-// mit Poti einstellbar
-
 Own_Open_Loop *MotorControl;
-
+// Encoder *Rotary_Encoder;
 
 InterruptIn button_stop(D7); // Stop Taster, Falling Edge glaub ich
 InterruptIn button_start(D8); // Start Taster, Falling Edge
 
-InterruptIn rotary_encoder1(D12); // Rotary Encoder, Falling Edge glaub ich
-InterruptIn rotary_encoder2(D13); // Rotary Encoder, Falling Edge
+// InterruptIn rotary_encoderA(D12); // Rotary Encoder, Falling Edge glaub ich
+// InterruptIn rotary_encoderB(PA_11); // Rotary Encoder, Falling Edge
+
+// Ticker synchronous_rpm;
+
+bool stop_motor = 0;
 
 
+// int32_t pwmstep = 0;
 
-// DigitalOut
-
-uint32_t pwmstep = 0;
-
-void next_pwm_step(void)
-{
-  ++pwmstep;
-}
+// void next_sine_step(void)
+// {
+//   ++pwmstep;
+// }
 
 void start_button_press(void)
 {
-  MotorControl->start_motor_control();
+  // MotorControl->start_motor_control();
 }
 
 void stop_button_press(void)
 {
-  MotorControl->quit_motor_control();
+  stop_motor = 1;
+
+  // MotorControl->quit_motor_control();
 }
 
-Ticker synchronous_rpm;
+// void angle_at_start(void)
+// {
+//     if (angle == 0)
+//   {
+//     MotorControl->start_motor_control();
+//   }
+// }
+
+// void angle_at_end(void)
+// {
+//     if (angle == 0)
+//   {
+//     MotorControl->quit_motor_control();
+//   }
+// }
+
+// DigitalOut
+
+// bool has_angle_changed()
+// {
+//   static int32_t previous_angle = 0;
+//   bool has_angle_chaged;
+//   if (previous_angle != angle)
+//   {
+//     has_angle_chaged = true;
+//   }
+//   else 
+//   {
+//     has_angle_chaged = false;
+//   }
+//   return has_angle_chaged;
+// }
 
 // Create a BufferedSerial object with a default baud rate.
 static BufferedSerial serial_port(USBTX, USBRX);
@@ -57,24 +188,30 @@ int main() {
   button_start.fall(&start_button_press);
   button_stop.fall(&stop_button_press);
 
-   MotorControl = new Own_Open_Loop();
+// Rotary_Encoder = new Encoder();
+ Encoder Rotary_Encoder;
+ MotorControl = new Own_Open_Loop;
+//  synchronous_rpm.attach(&next_sine_step, 1);
 
-   MotorControl->start_motor_control();
 
-  synchronous_rpm.attach(&next_pwm_step, 0.2);
-
-
-// IN1.pulsewidth_us(sine_wave[sine_step]);
-// uint32_t periodlength = TIM3->CCR2;
 // serial_port.write(buf, periodlength);
 
   while(1) {
 
-    MotorControl->next_pwm_step(pwmstep);
-MotorControl->motor_control((float)pwmstep);
+    if (stop_motor == 1)
+    {
+      Rotary_Encoder.reset_rotary_angle();
+      stop_motor = 0;
+    }
+
+    int32_t rotary_angle = Rotary_Encoder.get_rotary_angle();
+
+    MotorControl->control_motor(rotary_angle);
+    // MotorControl->motor_control((float)pwmstep);
+
 
   // serial_port.write(buf, periodlength);  
   // put your main code here, to run repeatedly:
-    ThisThread::sleep_for(100);
+    ThisThread::sleep_for(20);
   }
 }

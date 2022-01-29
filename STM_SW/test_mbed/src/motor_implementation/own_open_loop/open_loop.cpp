@@ -1,70 +1,56 @@
 #include "open_loop.hpp"
 
 Own_Open_Loop::Own_Open_Loop()
-    : IN1(1), IN2(2), IN3(3), INH(D6)
+    : IN1(1), IN2(2), IN3(3), previousvelocity(0)
 {
-    // sine_step1 = 0;
-    // sine_step2 = 40;
-    // sine_step3 = 80;
-
-    // IN1.period_us(100);
-    // IN2.period_us(100);
-    // IN3.period_us(100);
+    
 }
 
-void Own_Open_Loop::next_pwm_step(uint32_t sinestep)
+void Own_Open_Loop::next_pwm_step(void)
 {
-    static uint32_t previoussinestep = 0;
-    if (sinestep != previoussinestep)
+    if (target_speed > 0)
     {
-    //     ++sine_step1;
-    //     if (sine_step1 > 119)
-    //     {
-    //         sine_step1 = 0;
-    //     }
-
-    //     ++sine_step2;
-    //     if (sine_step2 > 119)
-    //     {
-    //         sine_step2 = 0;
-    //     }
-
-    //     ++sine_step3;
-    //     if (sine_step3 > 119)
-    //     {
-    //         sine_step3 = 0;
-    //     }
-    IN1.next_phase();
-    IN2.next_phase();
-    IN3.next_phase();
-    // IN1.previous_phase();
+        IN1.next_phase();
+        IN2.next_phase();
+        IN3.next_phase();
     }
-    previoussinestep = sinestep;
-    // adapt_period_time();
+    else if (target_speed < 0)
+    {
+        IN1.previous_phase();
+        IN2.previous_phase();
+        IN3.previous_phase();
+    }
+    synchronous_rpm.detach();
+    float switching_frequency = 1000000 /abs(target_speed); 
+    synchronous_rpm.attach_us(callback(this, &Own_Open_Loop::next_pwm_step), switching_frequency);
 }
 
-void Own_Open_Loop::motor_control(float velocity)
+void Own_Open_Loop::control_motor(int32_t velocity)
 {
-    // IN1.set_phase(sine_wave[sine_step1]);
-    // IN2.set_phase(sine_wave[sine_step2]);
-    // IN3.set_phase(sine_wave[sine_step3]);
+    target_speed = velocity;
+    
+    if (velocity == 0 && previousvelocity != 0) 
+    {
+        quit_motor_control();
+    }
+    else if(previousvelocity == 0 && velocity != 0)
+    {
+        start_motor_control();
+    }
+    previousvelocity = velocity;
 }
-
-// void writephase(PwmOut &IN)
-// {
-//     IN->write(sine_wave[sine_step1]);
-// }
 
 void Own_Open_Loop::start_motor_control(void)
 {
-    INH.write(1);
+    synchronous_rpm.attach_us(callback(this, &Own_Open_Loop::next_pwm_step) ,1000000 / (float) this->target_speed);
     IN1.resume();
     IN2.resume();
     IN3.resume();
 }
+
 void Own_Open_Loop::quit_motor_control(void)
 {
-    INH.write(0);
+    synchronous_rpm.detach();
     IN1.suspend();
     IN2.suspend();
     IN3.suspend();
@@ -73,4 +59,3 @@ void Own_Open_Loop::quit_motor_control(void)
 Own_Open_Loop::~Own_Open_Loop()
 {
 }
-

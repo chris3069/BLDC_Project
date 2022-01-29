@@ -5,7 +5,7 @@
 class Motor_Implementation
 {
   public:
-    virtual void motor_control(float velocity) = 0;
+    // virtual void motor_control(float velocity) = 0;
     virtual void start_motor_control(void) = 0;
     virtual void quit_motor_control(void) = 0;
     Motor_Implementation() {};

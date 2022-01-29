@@ -14,10 +14,15 @@ class MotorPhase
     void previous_phase(void);
     void resume(void);
     void suspend(void);
+    void increase_factor(void);
+    void decrease_factor(void);
     private:
     PwmOut *IN;
     uint8_t phaseoffset;
     int8_t sine_step;
+    float factor;
+    DigitalOut *INH;
+    //INH Pin for every Phase
 
 };
 
