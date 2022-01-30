@@ -1,5 +1,5 @@
-#ifndef own_motor_implementation_h
-#define own_motor_implementation_h
+#ifndef own_open_loop_motor_implementation_h
+#define own_open_loop_motor_implementation_h
 
 #include "mbed.h"
 #include "../motor_implementation.hpp"
