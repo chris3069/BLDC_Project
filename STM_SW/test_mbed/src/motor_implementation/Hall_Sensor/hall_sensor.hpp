@@ -5,17 +5,21 @@
 // #include "../motor_implementation.hpp"
 // #include "../MotorPhase/motorphase.hpp"
 
-enum Hall_states 
+// enum Hall_states 
+// // u * 100 + v*10 +b *1
+// // either enum from 0 to 5 or u * 100 + v*10 +b *1
+// {
+//     UvW = 101,
+//     Uvw = 100,
+//     UVw = 110,
+//     uVw = 10,
+//     uVW = 11,
+//     uvW = 1
+// } hall_position;
+
 // u * 100 + v*10 +b *1
-// either enum from 0 to 5 or u * 100 + v*10 +b *1
-{
-    UvW = 101,
-    Uvw = 100,
-    UVw = 110,
-    uVw = 10,
-    uVW = 11,
-    uvW = 1
-} hall_position;
+
+using Hall_state = uint8_t;
 
 class Hall_Sensor
 {
@@ -23,9 +27,10 @@ public:
     Hall_Sensor();
     ~Hall_Sensor();
 
-    Hall_states getCurrentState(void);
-    Hall_states getNextState(void);
-    Hall_states getPreviousState(void);
+    Hall_state getCurrentState(void);
+    int8_t Hall_direction(void);
+    // Hall_states getNextState(void);
+    // Hall_states getPreviousState(void);
 
 private:
     void rise_U(void);
@@ -35,39 +40,22 @@ private:
     void fall_V(void);
     void fall_W(void);
 
+    void calculate_current_state(void);
+    Hall_state current_position_possible(uint8_t);
+    bool current_position_plausible(Hall_state );
     void change_state(void);
 
 private:
     InterruptIn senseU;
     InterruptIn senseV;
     InterruptIn senseW;
-    Hall_states rotorposition;
+    const uint8_t hall_position[6] = { 101 ,100 ,110 ,10 ,11 ,1 };
     bool u, v, w;
+    int8_t direction;
+    // uint8_t current_hall_state;
+
+    Hall_state previous_hall_position_index;
+    Hall_state current_hall_position_index;
 };
-
-// class Own_Closed_Loop : Motor_Implementation
-// {
-//     public:
-//     Own_Closed_Loop();
-
-//     void control_motor(int32_t velocity);
-//     ~Own_Closed_Loop();
-
-//   private:
-//     void start_motor_control(void);
-//     void quit_motor_control(void);
-//     void next_pwm_step(void);
-
-//   private:
-
-//   Timeout synchronous_rpm;
-
-//   MotorPhase IN1;
-//   MotorPhase IN2;
-//   MotorPhase IN3;
-
-//   int32_t target_speed;
-//   int32_t previousvelocity;
-// };
 
 #endif
