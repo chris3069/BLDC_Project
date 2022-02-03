@@ -52,9 +52,6 @@
         change_state();
     }
 
-
-
-
     void Hall_Sensor::calculate_current_state(void)
     {
         uint8_t hall_state = u*100 + v* 10 + w;
@@ -71,19 +68,11 @@
             if (hall_position[potential_position] == hall_state)
             {
                 position_index = potential_position;
+                return position_index;
             }
         }
-        if (position_index != UINT8_MAX)
-        {
-            // return position_index;
-            // current_hall_position_index = position_index;
-        }
-        else 
-        {
-            MBED_ASSERT( (bool) ( position_index != UINT8_MAX ));   
-            // hall position does not make sense, error in measurement 
-        }
-        return position_index;
+        // no valid position
+        MBED_ASSERT( (bool) ( position_index != UINT8_MAX ));
     }
 
     bool Hall_Sensor::current_position_plausible(Hall_state state)
@@ -132,13 +121,3 @@
         return direction;
     }
 
-    // Hall_states Hall_Sensor::getNextState(void)
-    // {
-    //     // return Hall_states[rotorposition];
-    //     // if 
-    // }
-
-    // Hall_state Hall_Sensor::getPreviousState(void)
-    // {
-    //     return previous_hall_position_index;
-    // }

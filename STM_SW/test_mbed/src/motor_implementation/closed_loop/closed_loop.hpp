@@ -3,10 +3,11 @@
 
 #include "mbed.h"
 #include "../motor_implementation.hpp"
-#include "../MotorPhase/motorphase.hpp"
+#include "../MotorPhase/Block_commutation/phase_block_com.hpp"
+#include "../Hall_Sensor/hall_sensor.hpp"
 
 
-class Own_Closed_Loop : Motor_Implementation
+class Own_Closed_Loop : public Motor_Implementation
 {
     public:
     Own_Closed_Loop();
@@ -23,9 +24,10 @@ class Own_Closed_Loop : Motor_Implementation
 
   Timeout synchronous_rpm;
 
-  MotorPhase IN1;
-  MotorPhase IN2;
-  MotorPhase IN3;
+  Block_commutation IN1;
+  Block_commutation IN2;
+  Block_commutation IN3;
+  // Hall_Sensor;
 
   int32_t target_speed;
   int32_t previousvelocity;

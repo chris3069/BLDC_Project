@@ -1,7 +1,7 @@
 #include "open_loop.hpp"
 
 Own_Open_Loop::Own_Open_Loop()
-    : IN1(1), IN2(2), IN3(3), previousvelocity(0)
+    : IN1(1), IN2(2), IN3(3)
 {
     
 }

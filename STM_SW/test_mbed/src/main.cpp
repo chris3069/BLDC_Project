@@ -2,6 +2,7 @@
 
 // #include "encoder_implementation/own_rotary.hpp"
 #include "motor_implementation/own_open_loop/open_loop.hpp"
+#include "motor_implementation/closed_loop/closed_loop.hpp"
 
 class Encoder
 {
@@ -104,7 +105,7 @@ Encoder::Encoder()
 
 #define MAXIMUM_BUFFER_SIZE 32
 
-Own_Open_Loop *MotorControl;
+Motor_Implementation *MotorControl;
 // Encoder *Rotary_Encoder;
 
 InterruptIn button_stop(D7); // Stop Taster, Falling Edge glaub ich

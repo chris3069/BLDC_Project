@@ -5,19 +5,6 @@
 // #include "../motor_implementation.hpp"
 // #include "../MotorPhase/motorphase.hpp"
 
-// enum Hall_states 
-// // u * 100 + v*10 +b *1
-// // either enum from 0 to 5 or u * 100 + v*10 +b *1
-// {
-//     UvW = 101,
-//     Uvw = 100,
-//     UVw = 110,
-//     uVw = 10,
-//     uVW = 11,
-//     uvW = 1
-// } hall_position;
-
-// u * 100 + v*10 +b *1
 
 using Hall_state = uint8_t;
 
@@ -29,8 +16,6 @@ public:
 
     Hall_state getCurrentState(void);
     int8_t Hall_direction(void);
-    // Hall_states getNextState(void);
-    // Hall_states getPreviousState(void);
 
 private:
     void rise_U(void);
