@@ -12,25 +12,14 @@ class Own_Closed_Loop : public Motor_Implementation
     public:
     Own_Closed_Loop();
 
-    void control_motor(int32_t velocity);
+    // void control_motor(int32_t velocity);
     ~Own_Closed_Loop();
 
   private:
-    void start_motor_control(void);
-    void quit_motor_control(void);
     void next_pwm_step(void);
 
   private:
 
-  Timeout synchronous_rpm;
-
-  Block_commutation IN1;
-  Block_commutation IN2;
-  Block_commutation IN3;
-  // Hall_Sensor;
-
-  int32_t target_speed;
-  int32_t previousvelocity;
 };
 
 #endif

@@ -24,7 +24,7 @@ class Encoder
     InterruptIn rotary_encoderB;
     // Timeout synchronous_rpm;
 
-    volatile int32_t rotary_angle;
+    volatile int32_t m_rotary_angle;
     volatile bool voltage_level_a;
     volatile bool voltage_level_b;
     // _interrupt.rise(callback(this, &Encoder::change_angle));
@@ -35,11 +35,11 @@ void Encoder::rise_A(void)
   voltage_level_a = 1;
   if (voltage_level_b == 1)
   {
-    rotary_angle = rotary_angle +1;
+    m_rotary_angle = m_rotary_angle +1;
   }
   else
   {
-    --rotary_angle;
+    --m_rotary_angle;
   }
 }
 
@@ -48,11 +48,12 @@ void Encoder::fall_A(void)
   voltage_level_a = 0;
   if (voltage_level_b == 1)
   {
-    --Encoder::rotary_angle;
+    // --Encoder::rotary_angle;
+    --m_rotary_angle;
   }
   else
   {
-    ++rotary_angle;
+    ++m_rotary_angle;
   }
 }
 
@@ -61,11 +62,11 @@ void Encoder::rise_B(void)
   voltage_level_b = 1;
   if (voltage_level_a == 1)
   {
-    --rotary_angle;
+    --m_rotary_angle;
   }
   else
   {
-    ++rotary_angle;
+    ++m_rotary_angle;
   }
 }
 
@@ -74,28 +75,27 @@ void Encoder::fall_B(void)
   voltage_level_b = 0;
   if (voltage_level_a == 1)
   {
-    ++rotary_angle;
+    ++m_rotary_angle;
   }
   else
   {
-    --rotary_angle;
+    --m_rotary_angle;
   }
 }
 
 int32_t Encoder::get_rotary_angle(void)
 {
-    return rotary_angle;
+    return this->m_rotary_angle;
 }
 
 void Encoder::reset_rotary_angle(void)
 {
-    rotary_angle = 0;
+    m_rotary_angle = 0;
 }
 
 Encoder::Encoder()
-    :rotary_encoderA(D12), rotary_encoderB(PA_11) 
+    :rotary_encoderA(D12), rotary_encoderB(PA_11), m_rotary_angle(0)
 {
-    rotary_angle = 0;
     rotary_encoderA.rise(callback(this, &Encoder::rise_A));
     rotary_encoderA.fall(callback(this, &Encoder::fall_A));
     rotary_encoderB.rise(callback(this, &Encoder::rise_B));
@@ -111,20 +111,7 @@ Motor_Implementation *MotorControl;
 InterruptIn button_stop(D7); // Stop Taster, Falling Edge glaub ich
 InterruptIn button_start(D8); // Start Taster, Falling Edge
 
-// InterruptIn rotary_encoderA(D12); // Rotary Encoder, Falling Edge glaub ich
-// InterruptIn rotary_encoderB(PA_11); // Rotary Encoder, Falling Edge
-
-// Ticker synchronous_rpm;
-
 bool stop_motor = 0;
-
-
-// int32_t pwmstep = 0;
-
-// void next_sine_step(void)
-// {
-//   ++pwmstep;
-// }
 
 void start_button_press(void)
 {
@@ -134,42 +121,7 @@ void start_button_press(void)
 void stop_button_press(void)
 {
   stop_motor = 1;
-
-  // MotorControl->quit_motor_control();
 }
-
-// void angle_at_start(void)
-// {
-//     if (angle == 0)
-//   {
-//     MotorControl->start_motor_control();
-//   }
-// }
-
-// void angle_at_end(void)
-// {
-//     if (angle == 0)
-//   {
-//     MotorControl->quit_motor_control();
-//   }
-// }
-
-// DigitalOut
-
-// bool has_angle_changed()
-// {
-//   static int32_t previous_angle = 0;
-//   bool has_angle_chaged;
-//   if (previous_angle != angle)
-//   {
-//     has_angle_chaged = true;
-//   }
-//   else 
-//   {
-//     has_angle_chaged = false;
-//   }
-//   return has_angle_chaged;
-// }
 
 // Create a BufferedSerial object with a default baud rate.
 static BufferedSerial serial_port(USBTX, USBRX);
@@ -185,15 +137,11 @@ int main() {
     );
    char buf[MAXIMUM_BUFFER_SIZE] = {0};
 
-
   button_start.fall(&start_button_press);
   button_stop.fall(&stop_button_press);
 
-// Rotary_Encoder = new Encoder();
  Encoder Rotary_Encoder;
- MotorControl = new Own_Open_Loop;
-//  synchronous_rpm.attach(&next_sine_step, 1);
-
+ MotorControl = new Own_Open_Loop();
 
 // serial_port.write(buf, periodlength);
 
@@ -204,12 +152,8 @@ int main() {
       Rotary_Encoder.reset_rotary_angle();
       stop_motor = 0;
     }
-
     int32_t rotary_angle = Rotary_Encoder.get_rotary_angle();
-
     MotorControl->control_motor(rotary_angle);
-    // MotorControl->motor_control((float)pwmstep);
-
 
   // serial_port.write(buf, periodlength);  
   // put your main code here, to run repeatedly:
