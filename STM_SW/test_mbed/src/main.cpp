@@ -126,8 +126,8 @@ void stop_button_press(void)
 // Create a BufferedSerial object with a default baud rate.
 static BufferedSerial serial_port(USBTX, USBRX);
 
-int main() {
-
+int main() 
+{
     // Set desired properties (9600-8-N-1).
     serial_port.set_baud(9600);
     serial_port.set_format(
@@ -141,7 +141,10 @@ int main() {
   button_stop.fall(&stop_button_press);
 
  Encoder Rotary_Encoder;
- MotorControl = new Own_Open_Loop();
+
+ MotorControl = new Own_Closed_Loop();
+
+//  MotorControl = new Own_Open_Loop();
 
 // serial_port.write(buf, periodlength);
 

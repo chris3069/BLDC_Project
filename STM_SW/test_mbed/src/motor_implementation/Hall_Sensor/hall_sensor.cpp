@@ -100,8 +100,9 @@
         }
         else 
         {
-            MBED_ASSERT ( (bool) position_plausible );
+            // MBED_ASSERT ( (bool) position_plausible );
         }
+        previous_hall_position_index = state;
         return position_plausible;
     }
 
@@ -110,13 +111,13 @@
         calculate_current_state();
     }
 
-    Hall_state Hall_Sensor::getCurrentState(void)
+    const Hall_state Hall_Sensor::getCurrentState(void)
     {
         return current_hall_position_index;
     }
 
 
-    int8_t Hall_Sensor::Hall_direction(void)
+    const int8_t Hall_Sensor::getHall_direction(void)
     {
         return direction;
     }

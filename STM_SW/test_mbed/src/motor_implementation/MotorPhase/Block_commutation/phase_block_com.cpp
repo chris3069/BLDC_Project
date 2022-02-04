@@ -2,7 +2,7 @@
 
 const float commutation_table[6] = {0.5, 0, 0, 0.5, 1, 1}; 
 
-Block_commutation::Block_commutation(uint8_t motorphase)
+Block_commutation::Block_commutation(uint8_t motorphase, uint8_t current_position)
     :MotorPhase(motorphase)
 {
      switch (motorphase)
@@ -17,7 +17,15 @@ Block_commutation::Block_commutation(uint8_t motorphase)
             phaseoffset = 2;
             break; 
     }
-    this->commutation_step = phaseoffset;
+
+    if ((current_position + phaseoffset) > 5)
+    {
+        commutation_step = phaseoffset + current_position - 6;
+    }
+    else // current_postion + phaseoffset is in boundries
+    {
+    commutation_step = phaseoffset + current_position;
+    }
 }
 
 void Block_commutation::next_step(int8_t direction)
@@ -33,11 +41,16 @@ void Block_commutation::next_step(int8_t direction)
         
     if (commutation_step > 5)
     {
-        commutation_step = 0;
+        commutation_step = commutation_step - 6;
     }
     else if(commutation_step < 0)
     {
-        commutation_step = 5;
+        commutation_step = commutation_step + 6;
     }    
-    IN->write(0.5 * commutation_table[commutation_step]);
+    IN->write(0.25 * commutation_table[commutation_step]); // 0,5 vorsichtshalber mal
+}
+
+Block_commutation::~Block_commutation()
+{
+
 }

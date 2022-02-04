@@ -4,7 +4,7 @@
 Motor_Implementation::Motor_Implementation()
     :previousvelocity(0), m_target_speed(0), switching_frequency(0), max_target_speed(500000)
 {
-
+    
 }
 
 void Motor_Implementation::control_motor(int32_t velocity)
@@ -42,11 +42,12 @@ void Motor_Implementation::limit_target_speed(int32_t target_speed)
 void Motor_Implementation::start_motor_control(void)
 {
     calculate_switching_frequency();
-    attach_commutation_timer();
-    
+
     IN1->resume();
     IN2->resume();
     IN3->resume();
+
+    attach_commutation_timer();
 }
 
 void Motor_Implementation::calculate_switching_frequency(void)

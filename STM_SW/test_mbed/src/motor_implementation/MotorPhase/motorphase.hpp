@@ -23,6 +23,7 @@ class MotorPhase
     uint8_t phaseoffset;
     int8_t sine_step;
     int8_t commutation_step;
+    uint32_t switching_frequency;
     DigitalOut *INH;
     PwmOut *IN;
     //INH Pin for every Phase

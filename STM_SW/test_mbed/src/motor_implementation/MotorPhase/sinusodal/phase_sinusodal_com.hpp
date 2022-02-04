@@ -15,8 +15,7 @@ class Sinusodal_commutation : public MotorPhase
 
     private:
     void next_step(int8_t);
-    
-    uint8_t phaseoffset;
+
     float factor;
 };
 

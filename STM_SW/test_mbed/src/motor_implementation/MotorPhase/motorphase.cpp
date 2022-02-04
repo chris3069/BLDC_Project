@@ -8,6 +8,7 @@
 // const int8_t block_commutation_P3[6] = {0, 1, 2, 2, 1, 0};  
 
 MotorPhase::MotorPhase(uint8_t motorphase)
+    :switching_frequency(50)
 {
     switch (motorphase)
     {
@@ -24,7 +25,7 @@ MotorPhase::MotorPhase(uint8_t motorphase)
             IN = new PwmOut(D11);
             break; 
     }
-    IN->period_us(100);
+    IN->period_us(switching_frequency);
 }
 
 void MotorPhase::previous_phase(void)

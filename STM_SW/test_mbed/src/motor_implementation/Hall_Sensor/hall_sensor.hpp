@@ -14,8 +14,8 @@ public:
     Hall_Sensor();
     ~Hall_Sensor();
 
-    Hall_state getCurrentState(void);
-    int8_t Hall_direction(void);
+    const Hall_state getCurrentState(void);
+    const int8_t getHall_direction(void);
 
 private:
     void rise_U(void);

@@ -11,15 +11,16 @@ class Own_Closed_Loop : public Motor_Implementation
 {
     public:
     Own_Closed_Loop();
-
-    // void control_motor(int32_t velocity);
     ~Own_Closed_Loop();
 
   private:
+    void attach_commutation_timer(void);
     void next_pwm_step(void);
 
   private:
-
+  Hall_Sensor sensor;
+  uint8_t position_index;
+  int8_t torque_direction;
 };
 
 #endif

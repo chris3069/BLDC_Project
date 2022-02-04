@@ -11,10 +11,10 @@ Sinusodal_commutation::Sinusodal_commutation(uint8_t motorphase)
             phaseoffset = 0;
             break;
         case 2:
-            phaseoffset = 40;
+            phaseoffset = 39;
             break;
         case 3:
-            phaseoffset = 80;
+            phaseoffset = 79;
             break; 
     }
     this->commutation_step = phaseoffset;
@@ -34,11 +34,11 @@ void Sinusodal_commutation::next_step(int8_t direction)
         
     if (commutation_step > 119)
     {
-        commutation_step = 0;
+        commutation_step = commutation_step -120;
     }
     else if(commutation_step < 0)
     {
-        commutation_step = 119;
+        commutation_step = commutation_step + 120;
     }    
     IN->write(0.5 + factor * commutation_table[commutation_step]);
 }
