@@ -47,7 +47,7 @@ void Motor_Implementation::start_motor_control(void)
     IN2->resume();
     IN3->resume();
 
-    attach_commutation_timer();
+    attach_commutation_timer(switching_frequency);
 }
 
 void Motor_Implementation::calculate_switching_frequency(void)

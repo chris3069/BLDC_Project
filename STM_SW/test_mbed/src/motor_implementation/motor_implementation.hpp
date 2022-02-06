@@ -18,7 +18,7 @@ class Motor_Implementation
   void start_motor_control(void);
   void quit_motor_control(void);
   virtual void next_pwm_step(void) = 0;
-  virtual void attach_commutation_timer() = 0;
+  virtual void attach_commutation_timer(float) = 0;
   void calculate_switching_frequency(void);
   void limit_target_speed(int32_t);
 

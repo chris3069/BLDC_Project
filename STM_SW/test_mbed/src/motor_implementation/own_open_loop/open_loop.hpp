@@ -13,7 +13,7 @@ class Own_Open_Loop : public Motor_Implementation
     ~Own_Open_Loop();
    
   private:
-    void attach_commutation_timer(void);
+    void attach_commutation_timer(float);
     void next_pwm_step(void);
 
 };

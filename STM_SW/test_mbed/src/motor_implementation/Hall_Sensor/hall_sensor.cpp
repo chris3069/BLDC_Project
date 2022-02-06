@@ -78,12 +78,12 @@
     bool Hall_Sensor::current_position_plausible(Hall_state state)
     {
         bool position_plausible = false;
-        if ( previous_hall_position_index +1 == state)
+        if ( previous_hall_position_index + 1 == state)
         {
             position_plausible = true;
             direction = 1;
         }
-        else if ( previous_hall_position_index -1 == state )
+        else if ( previous_hall_position_index - 1 == state )
         {
             position_plausible = true;
             direction = -1;

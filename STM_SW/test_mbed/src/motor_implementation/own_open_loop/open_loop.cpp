@@ -25,12 +25,12 @@ void Own_Open_Loop::next_pwm_step(void)
 
     calculate_switching_frequency();
     synchronous_rpm.detach();
-    attach_commutation_timer();
+    attach_commutation_timer(switching_frequency);
 }
 
-void Own_Open_Loop::attach_commutation_timer(void)
+void Own_Open_Loop::attach_commutation_timer(float switching_freq)
 {
-synchronous_rpm.attach_us(callback(this, &Own_Open_Loop::next_pwm_step) ,switching_frequency);
+synchronous_rpm.attach_us(callback(this, &Own_Open_Loop::next_pwm_step) ,switching_freq);
 }
 
 Own_Open_Loop::~Own_Open_Loop()

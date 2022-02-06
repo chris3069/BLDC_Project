@@ -5,6 +5,7 @@ const float commutation_table[120] = {0.0, 0.02639, 0.0527, 0.07887, 0.10482, 0.
 Sinusodal_commutation::Sinusodal_commutation(uint8_t motorphase)
     :MotorPhase(motorphase)
 {
+    // m_commutation_table(sizeof(commutation_table)/sizeof(commutation_table[0]), 0);
      switch (motorphase)
     {
         case 1:
@@ -40,7 +41,7 @@ void Sinusodal_commutation::next_step(int8_t direction)
     {
         commutation_step = commutation_step + 120;
     }    
-    IN->write(0.5 + factor * commutation_table[commutation_step]);
+    IN->write(factor * (0.5 + commutation_table[commutation_step]));
 }
 
 void Sinusodal_commutation::increase_factor(void)
@@ -55,4 +56,12 @@ void Sinusodal_commutation::decrease_factor(void)
 Sinusodal_commutation::~Sinusodal_commutation()
 {
     
+}
+
+float Sinusodal_commutation::getPWM_Level(int8_t direction, int8_t current_position)
+{
+    
+    uint8_t com_step = (current_position - direction + phaseoffset) % 120;
+    // uint8_t com_step = (commutation_step+ direction) % 6;
+    return commutation_table[com_step];
 }

@@ -10,6 +10,8 @@ class Block_commutation : public MotorPhase
     // Block_commutation(uint8_t);
     Block_commutation(uint8_t, uint8_t);
     ~Block_commutation();
+    // void power_current_state(uint8_t, uint8_t );
+    float getPWM_Level(int8_t, int8_t);
     // void next_phase(void);
     // void previous_phase(void);
     // void resume(void);
@@ -20,7 +22,9 @@ class Block_commutation : public MotorPhase
 
     private:
     void next_step(int8_t);
+    uint8_t limit_value(uint8_t lower_value, uint8_t upper_value, int8_t data);
     uint8_t phase_control; 
+    const float commutation_table[6] = {0.5, 0, 0, 0.5, 1, 1}; 
 };
 
 #endif

@@ -11,10 +11,12 @@ class Sinusodal_commutation : public MotorPhase
     ~Sinusodal_commutation();
 
     void increase_factor(void);
-    void decrease_factor(void); 
+    void decrease_factor(void);
+    float getPWM_Level(int8_t, int8_t); 
 
     private:
     void next_step(int8_t);
+    
 
     float factor;
 };

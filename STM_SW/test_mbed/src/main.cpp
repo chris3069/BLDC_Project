@@ -115,6 +115,16 @@ bool stop_motor = 0;
 
 void start_button_press(void)
 {
+  // delete MotorControl;
+  // if (button_start.read() == 0)
+  // {
+  //   MotorControl = new Own_Closed_Loop();
+  // }
+  // else
+  // {
+  //   MotorControl = new Own_Open_Loop();
+  // }
+
   // MotorControl->start_motor_control();
 }
 

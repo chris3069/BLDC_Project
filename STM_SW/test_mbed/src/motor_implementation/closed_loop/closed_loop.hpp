@@ -14,13 +14,20 @@ class Own_Closed_Loop : public Motor_Implementation
     ~Own_Closed_Loop();
 
   private:
-    void attach_commutation_timer(void);
+    void attach_commutation_timer(float);
+    void calculate_motor_direction(void);
     void next_pwm_step(void);
+    void motorturnstoslow(void);
+    void motorintime(void); 
+    void turnright();
+    void turnleft();
 
   private:
   Hall_Sensor sensor;
-  uint8_t position_index;
+  uint8_t previous_position;
+  uint8_t new_position;
   int8_t torque_direction;
+
 };
 
 #endif
