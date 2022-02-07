@@ -147,14 +147,23 @@ int main()
     );
    char buf[MAXIMUM_BUFFER_SIZE] = {0};
 
-  button_start.fall(&start_button_press);
+  // button_start.fall(&start_button_press);
   button_stop.fall(&stop_button_press);
 
- Encoder Rotary_Encoder;
+  Encoder Rotary_Encoder;
 
- MotorControl = new Own_Closed_Loop();
+  // MotorControl = new Own_Closed_Loop();
 
-//  MotorControl = new Own_Open_Loop();
+  if (button_start.read() == 0)
+  {
+    MotorControl = new Own_Closed_Loop();
+  }
+  else
+  {
+    MotorControl = new Own_Open_Loop();
+  }
+
+
 
 // serial_port.write(buf, periodlength);
 

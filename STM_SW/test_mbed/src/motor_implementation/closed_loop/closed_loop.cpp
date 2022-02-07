@@ -29,9 +29,22 @@ void Own_Closed_Loop::next_pwm_step(void)
     IN2->power_current_state(torque_direction, ( new_position ));
     IN3->power_current_state(torque_direction, ( new_position ));
 
+    if (new_position != previous_position)
+    // 1 step further, keep speed up
+    {
+    calculate_switching_frequency();
+    synchronous_rpm.detach();
+    attach_commutation_timer(switching_frequency);
+    }
+    else
+    // new position == previous position, went to fast further
+    {
     synchronous_rpm.detach();
     calculate_switching_frequency(); 
-    attach_commutation_timer(switching_frequency/2);
+    attach_commutation_timer(switching_frequency/20);
+    }
+    previous_position = new_position;
+
 
     // if (previous_position == new_position) 
     // // still in the same position -> turns to slow
@@ -58,14 +71,14 @@ void Own_Closed_Loop::next_pwm_step(void)
 
     void Own_Closed_Loop::calculate_motor_direction(void)
     {
-        torque_direction = 0;
+        // torque_direction = 0;
     if (m_target_speed > 0)
     {
-        torque_direction = 0;
+        torque_direction = 1;
     }
     else if (m_target_speed < 0)
     {
-        torque_direction = -2;
+        torque_direction = -1;
     }
     }
 

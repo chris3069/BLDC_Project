@@ -54,7 +54,7 @@ void MotorPhase::power_current_state(int8_t direction, uint8_t current_position)
 {
     // INH->write(1)
     float pwm_level = getPWM_Level(direction, current_position);
-    IN->write(0.1 * pwm_level); // 0,5 vorsichtshalber mal
+    IN->write(0.4 * pwm_level); // 0,5 vorsichtshalber mal
 }
 
 MotorPhase::~MotorPhase()
